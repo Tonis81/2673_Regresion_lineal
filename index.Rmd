@@ -19,7 +19,6 @@ library(car)
 #library(data.table)
 #library(kableExtra)
 #library(flextable)
-library(tidyverse)
 library(skimr)
 options(scipen = 999) ##notacion cientifica apagada
 ```
