@@ -4,6 +4,8 @@
 knitr::include_graphics(here ("metadata", "NHANES_intro.png"))
 ```
 
+[NHANES Web](https://www.cdc.gov/nchs/nhanes/index.htm)
+
 La Encuesta Nacional de Examen de Salud y Nutrición (NHANES) es un programa de estudios diseñado para evaluar el estado de salud y nutrición de adultos y niños en los Estados Unidos. La encuesta es única porque combina entrevistas y exámenes físicos. NHANES es un programa principal del Centro Nacional de Estadísticas de Salud (NCHS). NCHS es parte de los Centros para el Control y la Prevención de Enfermedades (CDC) y tiene la responsabilidad de producir estadísticas vitales y de salud para la Nación.
 
 El programa NHANES comenzó a principios de la década de 1960 y se ha realizado como una serie de encuestas centradas en diferentes grupos de población o temas de salud. En 1999, la encuesta se convirtió en un programa continuo que tiene un enfoque cambiante en una variedad de medidas de salud y nutrición para satisfacer las necesidades emergentes. La encuesta examina una muestra representativa a nivel nacional de unas 5.000 personas cada año. Estas personas se encuentran en condados de todo el país, 15 de los cuales son visitados cada año.
