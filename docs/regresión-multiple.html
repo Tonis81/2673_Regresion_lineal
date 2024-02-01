@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2673 Regresion lineal</title>
-  <meta name="description" content="2673 Regresion lineal" />
+  <title>Chapter 3 Regresión multiple | 2673 Regresion lineal</title>
+  <meta name="description" content="Chapter 3 Regresión multiple | 2673 Regresion lineal" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2673 Regresion lineal" />
+  <meta property="og:title" content="Chapter 3 Regresión multiple | 2673 Regresion lineal" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2673 Regresion lineal" />
+  <meta name="twitter:title" content="Chapter 3 Regresión multiple | 2673 Regresion lineal" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="regresión-lineal-simple..html"/>
+<link rel="prev" href="regresión-lineal-simple..html"/>
+<link rel="next" href="nhanes.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -203,130 +203,46 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">2673 Regresion lineal</h1>
-<p class="author"><em>A.J. Signes-Pastor</em></p>
-</div>
-<div id="análisis-de-regresión" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Análisis de regresión<a href="index.html#análisis-de-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<ul>
-<li>El análisis de regresión ocupa el corazón de la estadística. Es un termino amplio para una colección de metodologías para predecir la variable respuesta (también denominada dependiente o variable de desenlace (<em>outcome variable</em>) de una o más variables predictoras (también llamadas independientes o variables explicativas). En general, los análisis de regresión se pueden utilizar para identificar las variables explicativas que están relacionadas con la variable respuesta, para describir la forma de la asociación, y para determinar una ecuación de predicción de la variable respuesta con las variables explicativas.</li>
-</ul>
+<div id="regresión-multiple" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Regresión multiple<a href="regresión-multiple.html#regresión-multiple" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Cuando hay más de una variable predictora, la regresión linear simple se convierte en regresión lineal múltiple. La regresion multiple se utiliza para el control de factores de confusión.</p>
+<p>Utilizaremos la base de datos preinstalada state.x77 como ejemplo. Esta base de datos tiene información sobre población, situación económica, tasa de alfabetismo, tasa de asesinatos, y tasa de graduación en instituto para los 50 Estados de USA en 1977. Para más información sobre la base de datos se puede utilizar help(state.x77).</p>
+<p>Imagínate que queremos explorar la relación entre la tasa de asesinatos y otras características de los estados incluyendo la población, tasa de alfabetismo, salario medio, y nivel de congelación (numero medio de días con temperaturas de congelación)</p>
 <p><br/></p>
-<ul>
-<li>Por ejemplo, un analista deportista puede utilizar análisis de regresión para desarrollar una ecuación para predecir la cantidad de calorías que una persona quemará mientras hace ejercicio en la cinta. La variable respuesta es el número de calorías quemadas (calculado a partir de la cantidad de oxígeno consumido), y las variables predictoras podrían incluir la duración del ejercicio (minutos), porcentaje de tiempo al nivel cardiaco deseado de trabajo, velocidad (km/h), edad (años), genero y índice de masa corporal (IMC).</li>
-</ul>
-<p><br/></p>
-<ul>
-<li><p><strong>Desde un punto de vista teórico</strong>, los análisis de regresión ayudan a contestar preguntas como:</p>
-<ul>
-<li>¿Cuál es la relación entre la duración del ejercicio y las calorías quemadas? ¿Es lineal o curva? Por ejemplo, ¿tiene el ejercicio un menor impacto sobre la cantidad de calorías quemadas después de un determinado momento?</li>
-<li>¿Como influye el esfuerzo del ejercicio (porcentaje de tiempo al nivel cardiaco deseado de trabajo, media velocidad)?</li>
-<li>¿Son las relaciones encontradas las misma para personas jóvenes y adultas, hombres y mujeres, delgados y con sobrepeso?</li>
-</ul></li>
-</ul>
-<p><br/></p>
-<ul>
-<li><p><strong>Desde un punto de vista práctico</strong>, los análisis de regression nos ayudaran a contestar preguntas como las siguientes:</p>
-<ul>
-<li>¿Cuántas calorías puede un hombre de 30 años con un IMC de 28.7 quemar si anda 45 minutos a una media de velocidad de 6 km/h y se mantiene dentro del 80% de su nivel cardiaco de trabajo?</li>
-<li>¿Cuál es el número mínimo de variables necesarias para predecir de forma precisa el número de calorías que una persona quemará cuando camine?</li>
-<li>¿Cómo de precisa es la predicción?</li>
-</ul></li>
-</ul>
-<p><br/></p>
-<table>
-<colgroup>
-<col width="12%" />
-<col width="87%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Tipos de regressión</th>
-<th>Uso típico</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><mark>Lineal simple<mark></td>
-<td>Predecir una variable respuesta cuantitativa a partir de una variable explicativa cuantitativa.</td>
-</tr>
-<tr class="even">
-<td>Polinomial</td>
-<td>Predecir una variable de respuesta cuantitativa a partir de una variable explicativa cuantitativa, donde la relación se modela como un polinomio de enésimo orden.</td>
-</tr>
-<tr class="odd">
-<td><mark>Lineal múltiple<mark></td>
-<td>Predecir una variable respuesta cuantitativa a partir de dos o más variables explicativas.</td>
-</tr>
-<tr class="even">
-<td>Multinivel</td>
-<td>Predecir una variable de respuesta a partir de datos que tienen una estructura jerárquica (por ejemplo, estudiantes dentro de las aulas dentro de las escuelas). También se denominan modelos jerárquicos, anidados o mixtos.</td>
-</tr>
-<tr class="odd">
-<td>Multivariante</td>
-<td>Predecir más de una variable de respuesta a partir de una o más variables explicativas.</td>
-</tr>
-<tr class="even">
-<td>Logística</td>
-<td>Predecir una variable de respuesta categórica a partir de una o más variables explicativas.</td>
-</tr>
-<tr class="odd">
-<td>Poisson</td>
-<td>Predecir una variable de respuesta que represente recuentos de una o más variables explicativas.</td>
-</tr>
-<tr class="even">
-<td>Riesgos proporcionales de Cox</td>
-<td>Predecir el tiempo hasta un evento (muerte, falla, recaída) a partir de una o más variables explicativas.</td>
-</tr>
-<tr class="odd">
-<td>Series de tiempo</td>
-<td>Modelado de datos de series de tiempo con errores correlacionados.</td>
-</tr>
-<tr class="even">
-<td>No lineales</td>
-<td>Predecir una variable de respuesta cuantitativa a partir de una o más variables explicativas, donde la forma del modelo no es lineal.</td>
-</tr>
-<tr class="odd">
-<td>No paramétricas</td>
-<td>Predecir una variable de respuesta cuantitativa a partir de una o más variables explicativas, donde la forma del modelo se deriva de los datos y no se especifica a priori.</td>
-</tr>
-<tr class="even">
-<td>Robusta</td>
-<td>Predecir una variable de respuesta cuantitativa a partir de una o más variables explicativas utilizando un enfoque que es resistente al efecto de observaciones influyentes.</td>
-</tr>
-</tbody>
-</table>
-<p><br/></p>
-<blockquote>
-<p>En esta clase no centraremos en los métodos de regresión basados en el <strong>método de minimos cuadrados</strong> tales como la regresión linear simple y regresión múltiple.</p>
-</blockquote>
-<p><br/></p>
-<p>Los modelos basados en el método de mínimos cuadrados tienen la siguiente forma:</p>
-<p><mark><span class="math inline">\(\hat{Y}_{i}=\hat{\beta}_{0}+\hat{\beta}_{j} X_{ji}+...+\hat{\beta}_{k} X_{ki} \quad i= 1 ... n\)</span><mark></p>
-<!--*Los valores con sombrero ^ hacen referencia a valores predictivos*.-->
-<p>donde <span class="math inline">\(n\)</span> es el número de observaciones y <span class="math inline">\(k\)</span> es el número de variables predictoras. En esta ecuación <span class="math inline">\(Y_{i}\)</span> es el valor a predecir de la variable dependiente para la observación <span class="math inline">\(i\)</span> (especificamente, es la media estimada de la distribución <span class="math inline">\(Y\)</span>, condicionada por los valores predictivos). <span class="math inline">\(X_{ji}\)</span> es el valor predictivo <span class="math inline">\(j\)</span> para la observación <span class="math inline">\(i\)</span>. <span class="math inline">\({\beta}_{0}\)</span> es la intersección (el valor predicho de <span class="math inline">\(Y\)</span> cuando todas las variables predictoras valen cero). <span class="math inline">\({\beta}_{j}\)</span> es el coeficiente de regresión para el predictor en posición <span class="math inline">\(j\)</span> (representa la pendiente del cambio en <span class="math inline">\(Y\)</span> por unidad de cambio en <span class="math inline">\(X_{ji}\)</span>).</p>
-<p><br/></p>
-<p>Nuestro objetivo es seleccionar los parámetros del modelo (intersección y pendiente) que minimice la diferencia entre los valores de respuesta actual y los valores predichos por el modelo. Específicamente, los parámetros del modelo son seleccionados para minimizar la suma de cuadrados residuales (<strong>método de minimos cuadrados</strong>):</p>
-<p><mark><span class="math inline">\(\sum_{i=1}^{n}=(Y_i - \hat{Y_i)}^{2}= \sum_{i=1}^{n} (Y_i-\hat{\beta_0} + \hat{\beta_1} X_{ji} + ...+ \hat{\beta_k} X_{ki})^{2}=\sum_{i=1}^{n} \xi _{i}^{2}\)</span><mark></p>
-<p><br/></p>
-<p>Para interpretar los coeficientes del modelo por mínimos cuadrados se debe de satisfacer un número de asunciones estadísticas:</p>
-<ul>
-<li><strong>Normalidad</strong> - Para los valores fijos de las variables independientes, la variable dependiente tiene una distribución normal.</li>
-<li><strong>Independencia</strong> - Los valores de <span class="math inline">\(Y_i\)</span> son independientes entre si.</li>
-<li><strong>Linealidad</strong> - La variable dependiente está relacionada de forma lineal con la independiente.</li>
-<li><strong>Homocedasticidad</strong> - La variable dependiente no varia con los niveles de las variables independientes (este se podría describir como varianza constante).</li>
-</ul>
-<p>Si las asunciones no se cumplen, los parámetros de significación e intervalo de confianza puede que no sean correctos.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="regresión-multiple.html#cb15-1" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;state.x77&quot;</span>)</span>
+<span id="cb15-2"><a href="regresión-multiple.html#cb15-2" tabindex="-1"></a>states <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(state.x77[,<span class="fu">c</span>(<span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Population&quot;</span>,</span>
+<span id="cb15-3"><a href="regresión-multiple.html#cb15-3" tabindex="-1"></a>                        <span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Frost&quot;</span>)])</span></code></pre></div>
+<p>Un buen primer paso en regresión múltiple es examinar la relación entre pareja de variables.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="regresión-multiple.html#cb16-1" tabindex="-1"></a><span class="fu">cor</span>(states)</span></code></pre></div>
+<pre><code>##                Murder Population Illiteracy     Income      Frost
+## Murder      1.0000000  0.3436428  0.7029752 -0.2300776 -0.5388834
+## Population  0.3436428  1.0000000  0.1076224  0.2082276 -0.3321525
+## Illiteracy  0.7029752  0.1076224  1.0000000 -0.4370752 -0.6719470
+## Income     -0.2300776  0.2082276 -0.4370752  1.0000000  0.2262822
+## Frost      -0.5388834 -0.3321525 -0.6719470  0.2262822  1.0000000</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="regresión-multiple.html#cb18-1" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb18-2"><a href="regresión-multiple.html#cb18-2" tabindex="-1"></a><span class="fu">scatterplotMatrix</span>(states, <span class="at">spread=</span><span class="cn">FALSE</span>, <span class="at">smoother.args=</span><span class="fu">list</span>(<span class="at">lty=</span><span class="dv">2</span>),</span>
+<span id="cb18-3"><a href="regresión-multiple.html#cb18-3" tabindex="-1"></a>    <span class="at">main=</span><span class="st">&quot;Scatter Plot Matrix&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div id="diagnostico-de-la-regresión" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Diagnostico de la regresión<a href="regresión-multiple.html#diagnostico-de-la-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="regresión-multiple.html#cb19-1" tabindex="-1"></a>states <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(state.x77[,<span class="fu">c</span>(<span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Population&quot;</span>,</span>
+<span id="cb19-2"><a href="regresión-multiple.html#cb19-2" tabindex="-1"></a>                        <span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Frost&quot;</span>)])</span>
+<span id="cb19-3"><a href="regresión-multiple.html#cb19-3" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Murder <span class="sc">~</span> Population <span class="sc">+</span> Illiteracy <span class="sc">+</span> Income <span class="sc">+</span> Frost, <span class="at">data=</span>states)</span>
+<span id="cb19-4"><a href="regresión-multiple.html#cb19-4" tabindex="-1"></a><span class="co">#par(mfrow=c(2,2))</span></span>
+<span id="cb19-5"><a href="regresión-multiple.html#cb19-5" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-13-1.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-13-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-13-3.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-13-4.png" width="672" /></p>
+<p>Los supuestos del modelo parecen estar bien satisfechos, con la excepción de que Nevada es un valor atípico.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="regresión-lineal-simple..html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regresión-lineal-simple..html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="nhanes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -357,7 +273,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Tonis81/2673_Regresion_lineal/edit/main/index.Rmd",
+"link": "https://github.com/Tonis81/2673_Regresion_lineal/edit/main/03-multiple.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -365,7 +281,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Tonis81/2673_Regresion_lineal/blob/main/index.Rmd",
+"link": "https://github.com/Tonis81/2673_Regresion_lineal/blob/main/03-multiple.Rmd",
 "text": null
 },
 "download": null,

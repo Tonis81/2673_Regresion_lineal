@@ -1,0 +1,39 @@
+# Regresión multiple
+
+Cuando hay más de una variable predictora, la regresión linear simple se convierte en regresión lineal múltiple. La regresion multiple se utiliza para el control de factores de confusión. 
+
+Utilizaremos la base de datos preinstalada state.x77 como ejemplo. Esta base de datos tiene información sobre población, situación económica, tasa de alfabetismo, tasa de asesinatos, y tasa de graduación en instituto para los 50 Estados de USA en 1977. Para más información sobre la base de datos se puede utilizar help(state.x77).
+
+Imagínate que queremos explorar la relación entre la tasa de asesinatos y otras características de los estados incluyendo la población, tasa de alfabetismo, salario medio, y nivel de congelación (numero medio de días con temperaturas de congelación)
+
+<br/>
+```{r}
+help("state.x77")
+states <- as.data.frame(state.x77[,c("Murder", "Population",
+                        "Illiteracy", "Income", "Frost")])
+```
+
+Un buen primer paso en regresión múltiple es examinar la relación entre pareja de variables.
+
+```{r}
+cor(states)
+```
+
+```{r, warning=FALSE}
+library(car)
+scatterplotMatrix(states, spread=FALSE, smoother.args=list(lty=2),
+    main="Scatter Plot Matrix")
+```
+
+## Diagnostico de la regresión
+
+```{r}
+states <- as.data.frame(state.x77[,c("Murder", "Population",
+                        "Illiteracy", "Income", "Frost")])
+fit <- lm(Murder ~ Population + Illiteracy + Income + Frost, data=states)
+#par(mfrow=c(2,2))
+plot(fit)
+```
+
+Los supuestos del modelo parecen estar bien satisfechos, con la excepción de que Nevada es un valor atípico.
+
