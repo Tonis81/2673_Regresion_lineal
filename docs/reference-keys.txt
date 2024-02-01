@@ -4,6 +4,7 @@ diagnosticos-de-la-regresión
 regresión-multiple
 diagnostico-de-la-regresión
 nhanes
+example
 variables-description
 variables-de-exposición
 selección-cofactores

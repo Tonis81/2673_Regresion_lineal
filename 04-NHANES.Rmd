@@ -1,5 +1,11 @@
 # NHANES
 
+```{r, eval = TRUE, out.width="100%", echo=FALSE}
+knitr::include_graphics(here ("metadata", "NHANES_intro.png"))
+```
+
+## Example
+
 [@Signes2021]
 
 ```{r, results='hide', message=FALSE}
