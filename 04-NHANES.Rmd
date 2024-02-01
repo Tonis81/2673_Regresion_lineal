@@ -24,6 +24,8 @@ knitr::include_graphics(here ("metadata", "NHANES_paper.png"))
 
 [Acceso artículo](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8210664/)
 
+[Acceso al código R](https://urldefense.com/v3/__https://posit.cloud/content/5316065__;!!D9dNQwwGXtA!SJnJGZ5hHO5TWEELYdP4BkNRfNVCspMU4MFsW60qtoHVfKG921ZyETIspkUkdDm4ZJ2Y4TYmvE4HphHu$)
+
 ```{r, results='hide', message=FALSE}
 library(here)
 install.packages("skim")
