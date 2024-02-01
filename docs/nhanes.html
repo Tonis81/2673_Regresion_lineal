@@ -207,15 +207,23 @@ div.csl-indent {
 <div id="nhanes" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> NHANES<a href="nhanes.html#nhanes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><img src="metadata/NHANES_intro.png" width="100%" /></p>
+<p><a href="https://www.cdc.gov/nchs/nhanes/index.htm">NHANES Web</a></p>
+<p>La Encuesta Nacional de Examen de Salud y Nutrición (NHANES) es un programa de estudios diseñado para evaluar el estado de salud y nutrición de adultos y niños en los Estados Unidos. La encuesta es única porque combina entrevistas y exámenes físicos. NHANES es un programa principal del Centro Nacional de Estadísticas de Salud (NCHS). NCHS es parte de los Centros para el Control y la Prevención de Enfermedades (CDC) y tiene la responsabilidad de producir estadísticas vitales y de salud para la Nación.</p>
+<p>El programa NHANES comenzó a principios de la década de 1960 y se ha realizado como una serie de encuestas centradas en diferentes grupos de población o temas de salud. En 1999, la encuesta se convirtió en un programa continuo que tiene un enfoque cambiante en una variedad de medidas de salud y nutrición para satisfacer las necesidades emergentes. La encuesta examina una muestra representativa a nivel nacional de unas 5.000 personas cada año. Estas personas se encuentran en condados de todo el país, 15 de los cuales son visitados cada año.</p>
+<p>La entrevista NHANES incluye preguntas demográficas, socioeconómicas, dietéticas y relacionadas con la salud. El componente de examen consta de mediciones médicas, dentales y fisiológicas, así como pruebas de laboratorio administradas por personal médico altamente capacitado.</p>
+<p>Los resultados de esta encuesta se utilizan para determinar la prevalencia de las principales enfermedades y los factores de riesgo de las enfermedades. La información se utilizará para evaluar el estado nutricional y su asociación con la promoción de la salud y la prevención de enfermedades. Los hallazgos de NHANES también son la base de los estándares nacionales para medidas como la altura, el peso y la presión arterial. Los datos de esta encuesta se utilizarán en estudios epidemiológicos e investigaciones en ciencias de la salud, que ayudarán a desarrollar políticas sólidas de salud pública, dirigir y diseñar programas y servicios de salud y ampliar el conocimiento de la salud para la Nación.</p>
 <div id="example" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Example<a href="nhanes.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="metadata/NHANES_paper.png" width="100%" /></p>
 <p><span class="citation">(Signes-Pastor et al., 2021)</span></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8210664/">Acceso artículo</a></p>
+<p><a href="https://urldefense.com/v3/__https://posit.cloud/content/5316065__;!!D9dNQwwGXtA!SJnJGZ5hHO5TWEELYdP4BkNRfNVCspMU4MFsW60qtoHVfKG921ZyETIspkUkdDm4ZJ2Y4TYmvE4HphHu$">Acceso al código R</a></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="nhanes.html#cb20-1" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb20-2"><a href="nhanes.html#cb20-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;skim&quot;</span>)</span>
 <span id="cb20-3"><a href="nhanes.html#cb20-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;DATA_Final.csv&quot;</span>))</span>
 <span id="cb20-4"><a href="nhanes.html#cb20-4" tabindex="-1"></a><span class="fu">dim</span>(data)</span>
 <span id="cb20-5"><a href="nhanes.html#cb20-5" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="nhanes.html#cb21-1" tabindex="-1"></a><span class="co">#skim(data) # Análisis descriptivo de todas las variables.</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="nhanes.html#cb21-1" tabindex="-1"></a><span class="fu">skim</span>(data) <span class="co"># Análisis descriptivo de todas las variables.</span></span></code></pre></div>
 </div>
 <div id="variables-description" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Variables description<a href="nhanes.html#variables-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
