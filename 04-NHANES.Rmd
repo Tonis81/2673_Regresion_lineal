@@ -35,7 +35,7 @@ head(data)
 ```
 
 ```{r, results='hide', message=FALSE}
-#skim(data) # Análisis descriptivo de todas las variables.
+skim(data) # Análisis descriptivo de todas las variables.
 ```
 
 ## Variables description
