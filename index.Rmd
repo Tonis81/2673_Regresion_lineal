@@ -25,7 +25,6 @@ options(scipen = 999) ##notacion cientifica apagada
 
 \note{https://rpubs.com/riazakhan94/regsum # interprepation of the R outpu}
 
-![]("Picture.png")
 
 # Análisis de regresión
 
