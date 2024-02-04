@@ -25,6 +25,10 @@ options(scipen = 999) ##notacion cientifica apagada
 
 \note{https://rpubs.com/riazakhan94/regsum # interprepation of the R output}
 
+```{r, eval = TRUE, out.width="100%", echo=FALSE}
+knitr::include_graphics(here ("metadata", "Picture.png"))
+```
+
 # Análisis de regresión
 
 - El análisis de regresión ocupa el corazón de la estadística. Es un termino amplio para una colección de metodologías para predecir la variable respuesta (también denominada dependiente o variable de desenlace (*outcome variable*) de una o más variables predictoras (también llamadas independientes o variables explicativas). En general, los análisis de regresión se pueden utilizar para identificar las variables explicativas que están relacionadas con la variable respuesta, para describir la forma de la asociación, y para determinar una ecuación de predicción de la variable respuesta con las variables explicativas.
