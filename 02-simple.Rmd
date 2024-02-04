@@ -105,13 +105,10 @@ Para entender los gráficos generados, hay que tener en cuenta las asunciones pa
 
 <br/>
 
-Finalmente, el gráfico de *Residuals vs. Leverage* proporciona información sobre las observaciones individuales que quizás desee atender. El gráfico identifica valores atípicos, puntos de alto apalancamiento y observaciones influyentes. Específicamente:
+Finalmente, el gráfico de *Residuals vs. Leverage* proporciona información sobre las observaciones individuales que quizás desee atender. El gráfico identifica valores atípicos, puntos de influciencia alta y observaciones influyentes. Específicamente:
 
 - Un valor atípico es una observación que no se predice bien mediante el modelo de regresión ajustado (es decir, tiene un gran residuo positivo o negativo).
 
-- Una observación con un valor de apalancamiento alto tiene una combinación inusual de valores de predicción. Es decir, es un valor atípico en el espacio de predicción. El valor de la variable dependiente no se usa para calcular el apalancamiento de una observación.
+- Una observación con un valor de inluencia alto tiene una combinación inusual de valores de predicción. Es decir, es un valor atípico en el espacio de predicción. El valor de la variable dependiente no se usa para calcular el la influencia de una observación.
 
 - Una observación influyente es una observación que tiene un impacto desproporcionado en la determinación de los parámetros del modelo. Las observaciones influyentes se identifican mediante una estadística llamada distancia de Cook o D. de Cook.
-
-
-

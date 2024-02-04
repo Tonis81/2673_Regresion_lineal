@@ -23,8 +23,7 @@ library(skimr)
 options(scipen = 999) ##notacion cientifica apagada
 ```
 
-\note{https://rpubs.com/riazakhan94/regsum # interprepation of the R outpu}
-
+\note{https://rpubs.com/riazakhan94/regsum # interprepation of the R output}
 
 # Análisis de regresión
 
