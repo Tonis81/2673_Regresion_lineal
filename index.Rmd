@@ -68,13 +68,13 @@ options(scipen = 999) ##notacion cientifica apagada
 
 <br/>
 
-> En esta clase no centraremos en los métodos de regresión basados en el **método de minimos cuadrados** tales como la regresión linear simple y regresión múltiple. 
+><span style="color:darkgreen; font-size: 20px;">*En esta clase nos centraremos en los métodos de regresión basados en el **método de minimos cuadrados** tales como la regresión linear simple y regresión múltiple. *</span>
 
 <br/>
 
 Los modelos basados en el método de mínimos cuadrados tienen la siguiente forma:
 
-<mark>$\hat{Y}_{i}=\hat{\beta}_{0}+\hat{\beta}_{j} X_{ji}+...+\hat{\beta}_{k} X_{ki} \quad   i= 1 ... n$<mark> 
+$\hat{Y}_{i}=\hat{\beta}_{0}+\hat{\beta}_{j} X_{ji}+...+\hat{\beta}_{k} X_{ki} \quad   i= 1 ... n$
 
 <!--*Los valores con sombrero ^ hacen referencia a valores predictivos*.-->
 
@@ -84,7 +84,7 @@ donde $n$ es el número de observaciones y $k$ es el número de variables predic
 
 Nuestro objetivo es seleccionar los parámetros del modelo (intersección y pendiente) que minimice la diferencia entre los valores de respuesta actual y los valores predichos por el modelo. Específicamente, los parámetros del modelo son seleccionados para minimizar la suma de cuadrados residuales (**método de minimos cuadrados**):
 
-<mark>$\sum_{i=1}^{n}=(Y_i - \hat{Y_i)}^{2}= \sum_{i=1}^{n} (Y_i-\hat{\beta_0} + \hat{\beta_1} X_{ji} + ...+ \hat{\beta_k} X_{ki})^{2}=\sum_{i=1}^{n} \xi _{i}^{2}$<mark>
+$\sum_{i=1}^{n}=(Y_i - \hat{Y_i)}^{2}= \sum_{i=1}^{n} (Y_i-\hat{\beta_0} + \hat{\beta_1} X_{ji} + ...+ \hat{\beta_k} X_{ki})^{2}=\sum_{i=1}^{n} \xi _{i}^{2}$
 
 <br/>
 
