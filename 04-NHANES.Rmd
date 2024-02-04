@@ -118,7 +118,7 @@ round(confint(Multiple_BMXWAIST), 2)
 ```
 
 #### Longitud del brazo superior - *Upper arm length*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrFl) + 
                          (data$iqrMn) +
                          (data$iqrPb) +
@@ -132,8 +132,7 @@ round(confint(Multiple_BMXARML), 2)
 ### Plomo (Pb)
 
 #### BMI - *Body Mass Index*
-
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrPb) + 
                         (data$iqrMn) +
                         (data$iqrFl) +
@@ -145,8 +144,7 @@ round(confint(Multiple_BMXBMI), 2)
 ```
 
 #### Altura de pie - *standing height*
-
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrPb) + 
                        (data$iqrMn) +
                        (data$iqrFl) +
@@ -158,7 +156,7 @@ round(confint(Multiple_BMXHT),2)
 ```
 
 #### Circumferencia de cintura - *Waist circumference*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrPb) + 
                           (data$iqrMn) +
                           (data$iqrFl) +
@@ -170,7 +168,6 @@ round(confint(Multiple_BMXWAIST), 2)
 ```
 
 #### Longitud del brazo superior - *Upper arm length*
-
 ```{r, results='hide', message=FALSE}
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrPb) + 
                          (data$iqrMn) +
@@ -185,7 +182,7 @@ round(confint(Multiple_BMXARML), 2)
 ### Manganeso (Mn)
 
 #### BMI - *Body Mass Index*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrMn) + 
                         (data$iqrPb) +
                         (data$iqrFl) +
@@ -198,7 +195,7 @@ round(confint(Multiple_BMXBMI), 2)
 
 #### Altura de pie - *standing height*
 
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrMn) + 
                        (data$iqrPb) +
                        (data$iqrFl) +
@@ -211,7 +208,7 @@ round(confint(Multiple_BMXHT),2)
 
 #### Circumferencia de cintura - *Waist circumference*
 
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrMn) + 
                           (data$iqrPb) +
                           (data$iqrFl) +
@@ -223,7 +220,7 @@ round(confint(Multiple_BMXWAIST), 2)
 ```
 
 #### Longitud del brazo superior - *Upper arm length*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrMn) + 
                          (data$iqrPb) +
                          (data$iqrFl) +
@@ -239,7 +236,7 @@ round(confint(Multiple_BMXARML), 2)
 
 #### BMI - *Body Mass Index*
 
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrHg) + 
                         (data$iqrPb) +
                         (data$iqrFl) +
@@ -252,7 +249,7 @@ round(confint(Multiple_BMXBMI), 2)
 
 #### Altura de pie - *standing height*
 
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrHg) + 
                        (data$iqrPb) +
                        (data$iqrFl) +
@@ -264,8 +261,7 @@ round(confint(Multiple_BMXHT),2)
 ```
 
 #### Circumferencia de cintura - *Waist circumference*
-
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrHg) + 
                           (data$iqrPb) +
                           (data$iqrFl) +
@@ -278,7 +274,7 @@ round(confint(Multiple_BMXWAIST), 2)
 
 #### Longitud del brazo superior - *Upper arm length*
 
-```{r, results='hide', message=FALSE}
+```{r,  message=FALSE}
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrHg) + 
                          (data$iqrPb) +
                          (data$iqrFl) +
@@ -292,7 +288,7 @@ round(confint(Multiple_BMXARML), 2)
 ### Selenium (Se)
 
 #### BMI - *Body Mass Index*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrSe) + 
                         (data$iqrPb) +
                         (data$iqrFl) +
@@ -305,7 +301,7 @@ round(confint(Multiple_BMXBMI), 2)
 
 #### Altura de pie - *standing height*
 
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrSe) + 
                        (data$iqrPb) +
                        (data$iqrFl) +
@@ -317,7 +313,7 @@ round(confint(Multiple_BMXHT),2)
 ```
 
 #### Circumferencia de cintura - *Waist circumference*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrSe) + 
                           (data$iqrPb) +
                           (data$iqrFl) +
@@ -329,7 +325,7 @@ round(confint(Multiple_BMXWAIST), 2)
 ```
 
 #### Longitud del brazo superior - *Upper arm length*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrSe) + 
                          (data$iqrPb) +
                          (data$iqrFl) +
