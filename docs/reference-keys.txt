@@ -34,3 +34,5 @@ altura-de-pie---standing-height-4
 circumferencia-de-cintura---waist-circumference-4
 longitud-del-brazo-superior---upper-arm-length-4
 referencias
+ejemplo-base-de-datos-women
+ejemplo-base-de-datos-state.x77

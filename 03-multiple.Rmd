@@ -1,5 +1,7 @@
 # Regresión multiple
 
+## Ejemplo base de datos "state.x77"
+
 [Acceso al código R](https://urldefense.com/v3/__https://posit.cloud/content/5315975__;!!D9dNQwwGXtA!TgcUyMlKMXUZJQdiWTdY8W2MD6XZ33GVA8jyFJxv-50ItD2jDZPi1f7oM_3JHqx5qkmwQCrz8hmvPq7f$)
 
 Cuando hay más de una variable predictora, la regresión linear simple se convierte en regresión lineal múltiple. La regresion multiple se utiliza para el control de factores de confusión. 

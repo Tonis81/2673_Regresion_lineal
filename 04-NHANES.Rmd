@@ -34,9 +34,11 @@ dim(data)
 head(data)
 ```
 
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 skim(data) # Análisis descriptivo de todas las variables.
 ```
+
+\note{I AM SHOWING THE OUTCOME IN THE OUTPUT - "results='hide', "}
 
 ## Variables description
 
@@ -77,7 +79,7 @@ data$sch_activityscore
 ### Flúor (F)
 
 #### BMI - *Body Mass Index*
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrFl) + 
                         (data$iqrMn) +
                         (data$iqrPb) +
@@ -87,6 +89,8 @@ Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrFl) +
 summary(Multiple_BMXBMI)
 round(confint(Multiple_BMXBMI), 2)
 ```
+
+\note{I AM SHOWING THE OUTCOME IN THE OUTPUT - "results='hide', "}
 
 #### Altura de pie - *standing height*
 ```{r, results='hide', message=FALSE}
