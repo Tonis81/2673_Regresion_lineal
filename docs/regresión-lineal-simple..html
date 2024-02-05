@@ -172,19 +172,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.1" data-path="regresión-multiple.html"><a href="regresión-multiple.html#ejemplo-base-de-datos-state.x77"><i class="fa fa-check"></i><b>3.1</b> Ejemplo base de datos “state.x77”</a></li>
 <li class="chapter" data-level="3.2" data-path="regresión-multiple.html"><a href="regresión-multiple.html#diagnostico-de-la-regresión"><i class="fa fa-check"></i><b>3.2</b> Diagnostico de la regresión</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="nhanes.html"><a href="nhanes.html"><i class="fa fa-check"></i><b>4</b> NHANES</a>
+<li class="chapter" data-level="4" data-path="ejemplo-real.html"><a href="ejemplo-real.html"><i class="fa fa-check"></i><b>4</b> Ejemplo real</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="nhanes.html"><a href="nhanes.html#example"><i class="fa fa-check"></i><b>4.1</b> Example</a></li>
-<li class="chapter" data-level="4.2" data-path="nhanes.html"><a href="nhanes.html#variables-description"><i class="fa fa-check"></i><b>4.2</b> Variables description</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="nhanes.html"><a href="nhanes.html#variables-de-exposición"><i class="fa fa-check"></i><b>4.2.1</b> Variables de exposición</a></li>
-<li class="chapter" data-level="4.2.2" data-path="nhanes.html"><a href="nhanes.html#selección-cofactores"><i class="fa fa-check"></i><b>4.2.2</b> Selección cofactores</a></li>
-<li class="chapter" data-level="4.2.3" data-path="nhanes.html"><a href="nhanes.html#flúor-f"><i class="fa fa-check"></i><b>4.2.3</b> Flúor (F)</a></li>
-<li class="chapter" data-level="4.2.4" data-path="nhanes.html"><a href="nhanes.html#plomo-pb"><i class="fa fa-check"></i><b>4.2.4</b> Plomo (Pb)</a></li>
-<li class="chapter" data-level="4.2.5" data-path="nhanes.html"><a href="nhanes.html#manganeso-mn"><i class="fa fa-check"></i><b>4.2.5</b> Manganeso (Mn)</a></li>
-<li class="chapter" data-level="4.2.6" data-path="nhanes.html"><a href="nhanes.html#mercurio-hg"><i class="fa fa-check"></i><b>4.2.6</b> Mercurio (Hg)</a></li>
-<li class="chapter" data-level="4.2.7" data-path="nhanes.html"><a href="nhanes.html#selenium-se"><i class="fa fa-check"></i><b>4.2.7</b> Selenium (Se)</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="ejemplo-real.html"><a href="ejemplo-real.html#nhanes"><i class="fa fa-check"></i><b>4.1</b> NHANES</a></li>
+<li class="chapter" data-level="4.2" data-path="ejemplo-real.html"><a href="ejemplo-real.html#metales-y-crecimiento"><i class="fa fa-check"></i><b>4.2</b> Metales y crecimiento</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>5</b> Referencias</a></li>
 <li class="divider"></li>
@@ -212,7 +203,7 @@ div.csl-indent {
 <h2><span class="header-section-number">2.1</span> Ejemplo base de datos “women”<a href="regresión-lineal-simple..html#ejemplo-base-de-datos-women" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://urldefense.com/v3/__https://posit.cloud/content/5315975__;!!D9dNQwwGXtA!TgcUyMlKMXUZJQdiWTdY8W2MD6XZ33GVA8jyFJxv-50ItD2jDZPi1f7oM_3JHqx5qkmwQCrz8hmvPq7f$">Acceso al código R</a></p>
 <p>Utilizaremos la base de datos preinstalada <em>women</em>. Esta base de datos proporciona la altura y peso de un grupo de 15 mujeres.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb1-1"><a href="regresión-lineal-simple..html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="regresión-lineal-simple..html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="regresión-lineal-simple..html#cb2-1" tabindex="-1"></a><span class="fu">help</span>(women)</span>
 <span id="cb2-2"><a href="regresión-lineal-simple..html#cb2-2" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height, <span class="at">data=</span>women)</span>
 <span id="cb2-3"><a href="regresión-lineal-simple..html#cb2-3" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
@@ -225,15 +216,15 @@ div.csl-indent {
 ## -1.7333 -1.1333 -0.3833  0.7417  3.1167 
 ## 
 ## Coefficients:
-##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -87.51667    5.93694  -14.74 1.71e-09 ***
-## height        3.45000    0.09114   37.85 1.09e-14 ***
+##              Estimate Std. Error t value           Pr(&gt;|t|)    
+## (Intercept) -87.51667    5.93694  -14.74 0.0000000017110819 ***
+## height        3.45000    0.09114   37.85 0.0000000000000109 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 1.525 on 13 degrees of freedom
 ## Multiple R-squared:  0.991,  Adjusted R-squared:  0.9903 
-## F-statistic:  1433 on 1 and 13 DF,  p-value: 1.091e-14</code></pre>
+## F-statistic:  1433 on 1 and 13 DF,  p-value: 0.00000000000001091</code></pre>
 <ul>
 <li><p>En la salida podemos observar la fórmula del modelo. El peso “weight” es la variable dependiente y altura “height” es la variable independiente o explicativa.</p></li>
 <li><p>El siguiente elemento son los residuos “Residuals”. Los residuos son básicamente la diferencia entre el valor actual observado y el valor respuesta predicho con el modelo. La sección de residuos muestra el valor mínimo, primer cuartil, mediana, tercer cuartil, y valor máximo. Con el fin de evaluar cómo de bueno es el ajuste del modelo nos fijamos en la simetría de la distribución. En nuestro caso la mediana/media de los residuos es cercana a 0, lo que sugiere que el modelo se ajusta bastante bien a los valores observados.</p></li>
@@ -251,25 +242,23 @@ div.csl-indent {
 <p><!--https://feliperego.github.io/blog/2015/10/23/Interpreting-Model-Output-In-R # I have used this to interpret the outcome.--></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="regresión-lineal-simple..html#cb4-1" tabindex="-1"></a>fit.res <span class="ot">&lt;-</span> fit<span class="sc">$</span>residuals</span>
 <span id="cb4-2"><a href="regresión-lineal-simple..html#cb4-2" tabindex="-1"></a><span class="fu">mean</span>(fit.res)</span></code></pre></div>
-<pre><code>## [1] 4.808075e-17</code></pre>
+<pre><code>## [1] 0.00000000000000004808075</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regresión-lineal-simple..html#cb6-1" tabindex="-1"></a><span class="fu">plot</span>(women<span class="sc">$</span>height, fit.res)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="regresión-lineal-simple..html#cb7-1" tabindex="-1"></a>women<span class="sc">$</span>weight</span></code></pre></div>
 <pre><code>##  [1] 115 117 120 123 126 129 132 135 139 142 146 150 154 159 164</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="regresión-lineal-simple..html#cb9-1" tabindex="-1"></a><span class="fu">residuals</span>(fit)</span></code></pre></div>
-<pre><code>##           1           2           3           4           5           6 
-##  2.41666667  0.96666667  0.51666667  0.06666667 -0.38333333 -0.83333333 
-##           7           8           9          10          11          12 
-## -1.28333333 -1.73333333 -1.18333333 -1.63333333 -1.08333333 -0.53333333 
-##          13          14          15 
-##  0.01666667  1.56666667  3.11666667</code></pre>
+<pre><code>##           1           2           3           4           5           6           7           8           9 
+##  2.41666667  0.96666667  0.51666667  0.06666667 -0.38333333 -0.83333333 -1.28333333 -1.73333333 -1.18333333 
+##          10          11          12          13          14          15 
+## -1.63333333 -1.08333333 -0.53333333  0.01666667  1.56666667  3.11666667</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="regresión-lineal-simple..html#cb11-1" tabindex="-1"></a><span class="co">#par(mfrow=c(1,1))</span></span>
 <span id="cb11-2"><a href="regresión-lineal-simple..html#cb11-2" tabindex="-1"></a><span class="fu">plot</span>(women<span class="sc">$</span>height,women<span class="sc">$</span>weight,</span>
 <span id="cb11-3"><a href="regresión-lineal-simple..html#cb11-3" tabindex="-1"></a>               <span class="at">xlab=</span><span class="st">&quot;Height (in inches)&quot;</span>,</span>
 <span id="cb11-4"><a href="regresión-lineal-simple..html#cb11-4" tabindex="-1"></a>               <span class="at">ylab=</span><span class="st">&quot;Weight (in pounds)&quot;</span>) </span>
 <span id="cb11-5"><a href="regresión-lineal-simple..html#cb11-5" tabindex="-1"></a></span>
 <span id="cb11-6"><a href="regresión-lineal-simple..html#cb11-6" tabindex="-1"></a><span class="fu">abline</span>(fit)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="regresión-lineal-simple..html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb12-2"><a href="regresión-lineal-simple..html#cb12-2" tabindex="-1"></a>women<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit) </span>
 <span id="cb12-3"><a href="regresión-lineal-simple..html#cb12-3" tabindex="-1"></a><span class="fu">ggplot</span>(women, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
@@ -279,7 +268,7 @@ div.csl-indent {
 <span id="cb12-7"><a href="regresión-lineal-simple..html#cb12-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> predicted), <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb12-8"><a href="regresión-lineal-simple..html#cb12-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Con la información generada se puede predecir que la ecuación es:</p>
 <p><span class="math inline">\(\hat{weight} = -87.52 + 3.45 x height\)</span></p>
 <p><br/></p>
@@ -292,7 +281,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="regresión-lineal-simple..html#cb14-1" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height, <span class="at">data=</span>women)</span>
 <span id="cb14-2"><a href="regresión-lineal-simple..html#cb14-2" tabindex="-1"></a><span class="co">#par(mfrow=c(2,2))</span></span>
 <span id="cb14-3"><a href="regresión-lineal-simple..html#cb14-3" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-8-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-8-3.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-8-4.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-10-3.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
 <p>Para entender los gráficos generados, hay que tener en cuenta las asunciones para los modelos de mínimos cuadrados:</p>
 <ul>
 <li><p><strong>Normalidad</strong>: si la variable dependiente se distribuye normalmente para un conjunto fijo de valores predictores, entonces los valores residuales deben distribuirse normalmente con una media de 0. La gráfica de QQ normal es una gráfica de probabilidad de los residuos estandarizados frente a los valores que se esperaría bajo normalidad. Si ha cumplido con la suposición de normalidad, los puntos de este gráfico deben estar en la línea recta de 45 grados. Como no es así, claramente ha violado ligeramente supuesto de normalidad.</p></li>
@@ -301,10 +290,10 @@ div.csl-indent {
 <li><p><strong>Homoscedasticidad</strong>: si ha cumplido con el supuesto de varianza constante, los puntos en el gráfico Escala-Ubicación (Scale-Location) deben ser una banda aleatoria alrededor de una línea horizontal. Parece cumplir con esta suposición.</p></li>
 </ul>
 <p><br/></p>
-<p>Finalmente, el gráfico de <em>Residuals vs. Leverage</em> proporciona información sobre las observaciones individuales que quizás desee atender. El gráfico identifica valores atípicos, puntos de alto apalancamiento y observaciones influyentes. Específicamente:</p>
+<p>Finalmente, el gráfico de <em>Residuals vs. Leverage</em> proporciona información sobre las observaciones individuales que quizás desee atender. El gráfico identifica valores atípicos, puntos de influciencia alta y observaciones influyentes. Específicamente:</p>
 <ul>
 <li><p>Un valor atípico es una observación que no se predice bien mediante el modelo de regresión ajustado (es decir, tiene un gran residuo positivo o negativo).</p></li>
-<li><p>Una observación con un valor de apalancamiento alto tiene una combinación inusual de valores de predicción. Es decir, es un valor atípico en el espacio de predicción. El valor de la variable dependiente no se usa para calcular el apalancamiento de una observación.</p></li>
+<li><p>Una observación con un valor de inluencia alto tiene una combinación inusual de valores de predicción. Es decir, es un valor atípico en el espacio de predicción. El valor de la variable dependiente no se usa para calcular el la influencia de una observación.</p></li>
 <li><p>Una observación influyente es una observación que tiene un impacto desproporcionado en la determinación de los parámetros del modelo. Las observaciones influyentes se identifican mediante una estadística llamada distancia de Cook o D. de Cook.</p></li>
 </ul>
 

@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Ejemplo real | 2673 Regresion lineal</title>
+  <meta name="description" content="Chapter 4 Ejemplo real | 2673 Regresion lineal" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Ejemplo real | 2673 Regresion lineal" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Ejemplo real | 2673 Regresion lineal" />
+  
+  
+  
+
+<meta name="author" content="A.J. Signes-Pastor" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regresión-multiple.html"/>
+<link rel="next" href="referencias.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Regresion lineal</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Análisis de regresión</a></li>
+<li class="chapter" data-level="2" data-path="regresión-lineal-simple..html"><a href="regresión-lineal-simple..html"><i class="fa fa-check"></i><b>2</b> Regresión lineal simple.</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="regresión-lineal-simple..html"><a href="regresión-lineal-simple..html#ejemplo-base-de-datos-women"><i class="fa fa-check"></i><b>2.1</b> Ejemplo base de datos “women”</a></li>
+<li class="chapter" data-level="2.2" data-path="regresión-lineal-simple..html"><a href="regresión-lineal-simple..html#diagnosticos-de-la-regresión"><i class="fa fa-check"></i><b>2.2</b> Diagnosticos de la regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="regresión-multiple.html"><a href="regresión-multiple.html"><i class="fa fa-check"></i><b>3</b> Regresión multiple</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="regresión-multiple.html"><a href="regresión-multiple.html#ejemplo-base-de-datos-state.x77"><i class="fa fa-check"></i><b>3.1</b> Ejemplo base de datos “state.x77”</a></li>
+<li class="chapter" data-level="3.2" data-path="regresión-multiple.html"><a href="regresión-multiple.html#diagnostico-de-la-regresión"><i class="fa fa-check"></i><b>3.2</b> Diagnostico de la regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ejemplo-real.html"><a href="ejemplo-real.html"><i class="fa fa-check"></i><b>4</b> Ejemplo real</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ejemplo-real.html"><a href="ejemplo-real.html#nhanes"><i class="fa fa-check"></i><b>4.1</b> NHANES</a></li>
+<li class="chapter" data-level="4.2" data-path="ejemplo-real.html"><a href="ejemplo-real.html#metales-y-crecimiento"><i class="fa fa-check"></i><b>4.2</b> Metales y crecimiento</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>5</b> Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">2673 Regresion lineal</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ejemplo-real" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Ejemplo real<a href="ejemplo-real.html#ejemplo-real" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="nhanes" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> NHANES<a href="ejemplo-real.html#nhanes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="metadata/NHANES_intro.png" width="100%" /></p>
+<p><a href="https://www.cdc.gov/nchs/nhanes/index.htm">NHANES Web</a></p>
+<p>La Encuesta Nacional de Examen de Salud y Nutrición (NHANES) es un programa de estudios diseñado para evaluar el estado de salud y nutrición de adultos y niños en los Estados Unidos. La encuesta es única porque combina entrevistas y exámenes físicos. NHANES es un programa principal del Centro Nacional de Estadísticas de Salud (NCHS). NCHS es parte de los Centros para el Control y la Prevención de Enfermedades (CDC) y tiene la responsabilidad de producir estadísticas vitales y de salud para la Nación.</p>
+<p>El programa NHANES comenzó a principios de la década de 1960 y se ha realizado como una serie de encuestas centradas en diferentes grupos de población o temas de salud. En 1999, la encuesta se convirtió en un programa continuo que tiene un enfoque cambiante en una variedad de medidas de salud y nutrición para satisfacer las necesidades emergentes. La encuesta examina una muestra representativa a nivel nacional de unas 5.000 personas cada año. Estas personas se encuentran en condados de todo el país, 15 de los cuales son visitados cada año.</p>
+<p>La entrevista NHANES incluye preguntas demográficas, socioeconómicas, dietéticas y relacionadas con la salud. El componente de examen consta de mediciones médicas, dentales y fisiológicas, así como pruebas de laboratorio administradas por personal médico altamente capacitado.</p>
+<p>Los resultados de esta encuesta se utilizan para determinar la prevalencia de las principales enfermedades y los factores de riesgo de las enfermedades. La información se utilizará para evaluar el estado nutricional y su asociación con la promoción de la salud y la prevención de enfermedades. Los hallazgos de NHANES también son la base de los estándares nacionales para medidas como la altura, el peso y la presión arterial. Los datos de esta encuesta se utilizarán en estudios epidemiológicos e investigaciones en ciencias de la salud, que ayudarán a desarrollar políticas sólidas de salud pública, dirigir y diseñar programas y servicios de salud y ampliar el conocimiento de la salud para la Nación.</p>
+</div>
+<div id="metales-y-crecimiento" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Metales y crecimiento<a href="ejemplo-real.html#metales-y-crecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="metadata/NHANES_paper.png" width="100%" /></p>
+<p><span class="citation">(Signes-Pastor et al., 2021)</span></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8210664/">Acceso artículo</a></p>
+<p><a href="https://urldefense.com/v3/__https://posit.cloud/content/5316065__;!!D9dNQwwGXtA!SJnJGZ5hHO5TWEELYdP4BkNRfNVCspMU4MFsW60qtoHVfKG921ZyETIspkUkdDm4ZJ2Y4TYmvE4HphHu$">Acceso al código R</a></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="ejemplo-real.html#cb20-1" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb20-2"><a href="ejemplo-real.html#cb20-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;skim&quot;</span>)</span>
+<span id="cb20-3"><a href="ejemplo-real.html#cb20-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;DATA_Final.csv&quot;</span>))</span>
+<span id="cb20-4"><a href="ejemplo-real.html#cb20-4" tabindex="-1"></a><span class="fu">dim</span>(data)</span>
+<span id="cb20-5"><a href="ejemplo-real.html#cb20-5" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="ejemplo-real.html#cb21-1" tabindex="-1"></a><span class="fu">skim</span>(data) <span class="co"># Análisis descriptivo de todas las variables.</span></span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-18">Table 4.1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">data</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">1634</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">31</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">30</td>
+</tr>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="26%" />
+<col width="12%" />
+<col width="17%" />
+<col width="5%" />
+<col width="5%" />
+<col width="7%" />
+<col width="11%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">INDFMPIR_ts_low.high</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="9%" />
+<col width="12%" />
+<col width="8%" />
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1358.02</td>
+<td align="right">786.51</td>
+<td align="right">1.00</td>
+<td align="right">684.25</td>
+<td align="right">1339.50</td>
+<td align="right">2049.75</td>
+<td align="right">2703.00</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">BMXARML</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">28.77</td>
+<td align="right">3.31</td>
+<td align="right">20.00</td>
+<td align="right">26.30</td>
+<td align="right">28.60</td>
+<td align="right">31.00</td>
+<td align="right">39.00</td>
+<td align="left">▁▇▇▅▁</td>
+</tr>
+<tr class="odd">
+<td align="left">BMXBMI</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">18.94</td>
+<td align="right">4.36</td>
+<td align="right">12.30</td>
+<td align="right">15.70</td>
+<td align="right">17.70</td>
+<td align="right">21.30</td>
+<td align="right">42.50</td>
+<td align="left">▇▅▂▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">BMXHT</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">135.16</td>
+<td align="right">12.47</td>
+<td align="right">98.40</td>
+<td align="right">125.80</td>
+<td align="right">134.35</td>
+<td align="right">144.28</td>
+<td align="right">171.20</td>
+<td align="left">▁▆▇▅▁</td>
+</tr>
+<tr class="odd">
+<td align="left">BMXWAIST</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">65.76</td>
+<td align="right">12.36</td>
+<td align="right">46.00</td>
+<td align="right">56.30</td>
+<td align="right">62.20</td>
+<td align="right">72.68</td>
+<td align="right">123.80</td>
+<td align="left">▇▆▂▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">bmi_zscore</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.03</td>
+<td align="right">1.01</td>
+<td align="right">-1.50</td>
+<td align="right">-0.72</td>
+<td align="right">-0.25</td>
+<td align="right">0.58</td>
+<td align="right">5.50</td>
+<td align="left">▇▅▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">arm_zscore</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.07</td>
+<td align="right">1.01</td>
+<td align="right">-2.62</td>
+<td align="right">-0.69</td>
+<td align="right">0.02</td>
+<td align="right">0.75</td>
+<td align="right">3.20</td>
+<td align="left">▁▇▇▅▁</td>
+</tr>
+<tr class="even">
+<td align="left">height_zscore</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.07</td>
+<td align="right">1.01</td>
+<td align="right">-2.90</td>
+<td align="right">-0.69</td>
+<td align="right">0.00</td>
+<td align="right">0.80</td>
+<td align="right">2.98</td>
+<td align="left">▁▆▇▅▁</td>
+</tr>
+<tr class="odd">
+<td align="left">LBDPFL</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.42</td>
+<td align="right">0.26</td>
+<td align="right">0.11</td>
+<td align="right">0.28</td>
+<td align="right">0.36</td>
+<td align="right">0.49</td>
+<td align="right">4.02</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">LBXBMN</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">10.78</td>
+<td align="right">3.30</td>
+<td align="right">3.76</td>
+<td align="right">8.39</td>
+<td align="right">10.29</td>
+<td align="right">12.63</td>
+<td align="right">24.28</td>
+<td align="left">▃▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">LBDBMNLC</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="left">▁▁▇▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">LBXBPB</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.70</td>
+<td align="right">0.53</td>
+<td align="right">0.05</td>
+<td align="right">0.41</td>
+<td align="right">0.56</td>
+<td align="right">0.81</td>
+<td align="right">5.80</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">LBDBPBLC</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.00</td>
+<td align="right">0.02</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">LBXBSE</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">179.11</td>
+<td align="right">16.70</td>
+<td align="right">110.23</td>
+<td align="right">167.76</td>
+<td align="right">178.03</td>
+<td align="right">190.29</td>
+<td align="right">238.50</td>
+<td align="left">▁▂▇▃▁</td>
+</tr>
+<tr class="odd">
+<td align="left">LBDBSELC</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="left">▁▁▇▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">LBXTHG</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.54</td>
+<td align="right">0.72</td>
+<td align="right">0.20</td>
+<td align="right">0.20</td>
+<td align="right">0.33</td>
+<td align="right">0.55</td>
+<td align="right">9.99</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">LBDTHGLC</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.39</td>
+<td align="right">0.49</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▅</td>
+</tr>
+<tr class="even">
+<td align="left">DR1TKCAL</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1904.55</td>
+<td align="right">738.13</td>
+<td align="right">171.00</td>
+<td align="right">1405.50</td>
+<td align="right">1800.00</td>
+<td align="right">2267.00</td>
+<td align="right">6992.00</td>
+<td align="left">▅▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">INDFMPIR</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.96</td>
+<td align="right">1.52</td>
+<td align="right">0.00</td>
+<td align="right">0.75</td>
+<td align="right">1.43</td>
+<td align="right">2.89</td>
+<td align="right">5.00</td>
+<td align="left">▇▆▃▂▃</td>
+</tr>
+<tr class="even">
+<td align="left">RIAGENDR</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.49</td>
+<td align="right">0.50</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">2.00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">RIDAGEYR</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">8.54</td>
+<td align="right">1.73</td>
+<td align="right">6.00</td>
+<td align="right">7.00</td>
+<td align="right">9.00</td>
+<td align="right">10.00</td>
+<td align="right">11.00</td>
+<td align="left">▇▃▃▅▅</td>
+</tr>
+<tr class="even">
+<td align="left">RIDRETH3</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3.12</td>
+<td align="right">1.71</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">3.00</td>
+<td align="right">4.00</td>
+<td align="right">7.00</td>
+<td align="left">▇▆▆▁▃</td>
+</tr>
+<tr class="odd">
+<td align="left">SMD460</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.38</td>
+<td align="right">0.70</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">3.00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">activityscore</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.79</td>
+<td align="right">2.20</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">3.00</td>
+<td align="right">4.00</td>
+<td align="right">12.00</td>
+<td align="left">▇▆▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">sch_activityscore</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.66</td>
+<td align="right">1.11</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">7.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">ip_ratio</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.48</td>
+<td align="right">0.50</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">SEQN</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">83744.33</td>
+<td align="right">5899.57</td>
+<td align="right">73560.00</td>
+<td align="right">78601.00</td>
+<td align="right">83495.00</td>
+<td align="right">88849.75</td>
+<td align="right">93701.00</td>
+<td align="left">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td align="left">SDDSRVYR</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">8.49</td>
+<td align="right">0.50</td>
+<td align="right">8.00</td>
+<td align="right">8.00</td>
+<td align="right">8.00</td>
+<td align="right">9.00</td>
+<td align="right">9.00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="odd">
+<td align="left">RIDRETH3.ts</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.94</td>
+<td align="right">1.68</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="right">3.00</td>
+<td align="right">4.00</td>
+<td align="right">6.00</td>
+<td align="left">▇▆▆▁▃</td>
+</tr>
+<tr class="even">
+<td align="left">SMD460.ts</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.26</td>
+<td align="right">0.44</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▃</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variables description</strong></p>
+<p>Body measures - 2013-14
+<a href="https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BMX_H.htm" class="uri">https://wwwn.cdc.gov/Nchs/Nhanes/2013-2014/BMX_H.htm</a></p>
+<p>Body measures - 2015-16
+<a href="https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.htm" class="uri">https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/BMX_I.htm</a></p>
+<p><strong>Variables de exposición</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="ejemplo-real.html#cb22-1" tabindex="-1"></a>data<span class="sc">$</span>ln_LBDPFL <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>LBDPFL)</span>
+<span id="cb22-2"><a href="ejemplo-real.html#cb22-2" tabindex="-1"></a>data<span class="sc">$</span>ln_LBXBMN <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>LBXBMN)</span>
+<span id="cb22-3"><a href="ejemplo-real.html#cb22-3" tabindex="-1"></a>data<span class="sc">$</span>ln_LBXBPB <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>LBXBPB)</span>
+<span id="cb22-4"><a href="ejemplo-real.html#cb22-4" tabindex="-1"></a>data<span class="sc">$</span>ln_LBXBSE <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>LBXBSE)</span>
+<span id="cb22-5"><a href="ejemplo-real.html#cb22-5" tabindex="-1"></a>data<span class="sc">$</span>ln_LBXTHG <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>LBXTHG)</span>
+<span id="cb22-6"><a href="ejemplo-real.html#cb22-6" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="ejemplo-real.html#cb22-7" tabindex="-1"></a>data<span class="sc">$</span>iqrFl <span class="ot">&lt;-</span> data<span class="sc">$</span>ln_LBDPFL<span class="sc">/</span><span class="fu">IQR</span>(data<span class="sc">$</span>ln_LBDPFL)</span>
+<span id="cb22-8"><a href="ejemplo-real.html#cb22-8" tabindex="-1"></a>data<span class="sc">$</span>iqrMn <span class="ot">&lt;-</span> data<span class="sc">$</span>ln_LBXBMN<span class="sc">/</span><span class="fu">IQR</span>(data<span class="sc">$</span>ln_LBXBMN)</span>
+<span id="cb22-9"><a href="ejemplo-real.html#cb22-9" tabindex="-1"></a>data<span class="sc">$</span>iqrPb <span class="ot">&lt;-</span> data<span class="sc">$</span>ln_LBXBPB<span class="sc">/</span><span class="fu">IQR</span>(data<span class="sc">$</span>ln_LBXBPB)</span>
+<span id="cb22-10"><a href="ejemplo-real.html#cb22-10" tabindex="-1"></a>data<span class="sc">$</span>iqrSe <span class="ot">&lt;-</span> data<span class="sc">$</span>ln_LBXBSE<span class="sc">/</span><span class="fu">IQR</span>(data<span class="sc">$</span>ln_LBXBSE)</span>
+<span id="cb22-11"><a href="ejemplo-real.html#cb22-11" tabindex="-1"></a>data<span class="sc">$</span>iqrHg <span class="ot">&lt;-</span> data<span class="sc">$</span>ln_LBXTHG<span class="sc">/</span><span class="fu">IQR</span>(data<span class="sc">$</span>ln_LBXTHG)</span></code></pre></div>
+<p><strong>Selección cofactores</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="ejemplo-real.html#cb23-1" tabindex="-1"></a>data<span class="sc">$</span>calories <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data<span class="sc">$</span>DR1TKCAL)</span>
+<span id="cb23-2"><a href="ejemplo-real.html#cb23-2" tabindex="-1"></a>data<span class="sc">$</span>INDFMPIR_ts <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>INDFMPIR_ts_low.high, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;high&quot;</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb23-3"><a href="ejemplo-real.html#cb23-3" tabindex="-1"></a>data<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(data<span class="sc">$</span>RIAGENDR, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb23-4"><a href="ejemplo-real.html#cb23-4" tabindex="-1"></a>data<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data<span class="sc">$</span>RIDAGEYR)</span>
+<span id="cb23-5"><a href="ejemplo-real.html#cb23-5" tabindex="-1"></a>data<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>RIDRETH3.ts)</span>
+<span id="cb23-6"><a href="ejemplo-real.html#cb23-6" tabindex="-1"></a>data<span class="sc">$</span>smoke <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>SMD460.ts)</span>
+<span id="cb23-7"><a href="ejemplo-real.html#cb23-7" tabindex="-1"></a>data<span class="sc">$</span>activityscore</span>
+<span id="cb23-8"><a href="ejemplo-real.html#cb23-8" tabindex="-1"></a>data<span class="sc">$</span>sch_activityscore</span></code></pre></div>
+<p><strong>Flúor (F)</strong></p>
+<p><strong>BMI - Body Mass Index</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="ejemplo-real.html#cb24-1" tabindex="-1"></a>Multiple_BMXBMI <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXBMI <span class="sc">~</span>  (data<span class="sc">$</span>iqrFl) <span class="sc">+</span> </span>
+<span id="cb24-2"><a href="ejemplo-real.html#cb24-2" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="ejemplo-real.html#cb24-3" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="ejemplo-real.html#cb24-4" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb24-5"><a href="ejemplo-real.html#cb24-5" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb24-6"><a href="ejemplo-real.html#cb24-6" tabindex="-1"></a>                        data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb24-7"><a href="ejemplo-real.html#cb24-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXBMI)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXBMI ~ (data$iqrFl) + (data$iqrMn) + (data$iqrPb) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.5704 -2.6281 -0.7878  1.9219 21.2766 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            13.83435915  5.60423654   2.469             0.013669 *  
+## data$iqrFl              0.00216746  0.12574828   0.017             0.986250    
+## data$iqrMn              0.88422699  0.14866474   5.948        0.00000000332 ***
+## data$iqrPb             -0.46857822  0.12995020  -3.606             0.000321 ***
+## data$iqrSe             -0.17136026  0.13560262  -1.264             0.206522    
+## data$iqrHg             -0.05304336  0.14326442  -0.370             0.711246    
+## data$calories           0.00002019  0.00013647   0.148             0.882384    
+## data$sex1               0.16830466  0.20280839   0.830             0.406735    
+## data$INDFMPIR_ts1       0.19112496  0.21174422   0.903             0.366861    
+## data$age                0.81319156  0.05941321  13.687 &lt; 0.0000000000000002 ***
+## data$smoke1             0.79310840  0.23267030   3.409             0.000669 ***
+## data$activityscore     -0.08595240  0.04639282  -1.853             0.064106 .  
+## data$sch_activityscore  0.06285977  0.09077757   0.692             0.488748    
+## data$race3             -1.06703522  0.26368984  -4.047        0.00005442844 ***
+## data$race4             -0.01497100  0.29122434  -0.051             0.959007    
+## data$race6             -1.31358144  0.33256749  -3.950        0.00008157030 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.983 on 1618 degrees of freedom
+## Multiple R-squared:  0.1714, Adjusted R-squared:  0.1637 
+## F-statistic: 22.31 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="ejemplo-real.html#cb26-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXBMI), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             2.84  24.83
+## data$iqrFl             -0.24   0.25
+## data$iqrMn              0.59   1.18
+## data$iqrPb             -0.72  -0.21
+## data$iqrSe             -0.44   0.09
+## data$iqrHg             -0.33   0.23
+## data$calories           0.00   0.00
+## data$sex1              -0.23   0.57
+## data$INDFMPIR_ts1      -0.22   0.61
+## data$age                0.70   0.93
+## data$smoke1             0.34   1.25
+## data$activityscore     -0.18   0.01
+## data$sch_activityscore -0.12   0.24
+## data$race3             -1.58  -0.55
+## data$race4             -0.59   0.56
+## data$race6             -1.97  -0.66</code></pre>
+<p><strong>Altura de pie - standing height</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="ejemplo-real.html#cb28-1" tabindex="-1"></a>Multiple_BMXHT <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXHT <span class="sc">~</span>  (data<span class="sc">$</span>iqrFl) <span class="sc">+</span> </span>
+<span id="cb28-2"><a href="ejemplo-real.html#cb28-2" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="ejemplo-real.html#cb28-3" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="ejemplo-real.html#cb28-4" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb28-5"><a href="ejemplo-real.html#cb28-5" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="ejemplo-real.html#cb28-6" tabindex="-1"></a>                       data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb28-7"><a href="ejemplo-real.html#cb28-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXHT)</span>
+<span id="cb28-8"><a href="ejemplo-real.html#cb28-8" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXHT),<span class="dv">2</span>)</span></code></pre></div>
+<p><strong>Circumferencia de cintura - Waist circumference</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="ejemplo-real.html#cb29-1" tabindex="-1"></a>Multiple_BMXWAIST <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXWAIST <span class="sc">~</span>  (data<span class="sc">$</span>iqrFl) <span class="sc">+</span> </span>
+<span id="cb29-2"><a href="ejemplo-real.html#cb29-2" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="ejemplo-real.html#cb29-3" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="ejemplo-real.html#cb29-4" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb29-5"><a href="ejemplo-real.html#cb29-5" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="ejemplo-real.html#cb29-6" tabindex="-1"></a>                          data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb29-7"><a href="ejemplo-real.html#cb29-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXWAIST)</span>
+<span id="cb29-8"><a href="ejemplo-real.html#cb29-8" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXWAIST), <span class="dv">2</span>)</span></code></pre></div>
+<p><strong>Longitud del brazo superior - Upper arm length</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="ejemplo-real.html#cb30-1" tabindex="-1"></a>Multiple_BMXARML <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXARML <span class="sc">~</span>  (data<span class="sc">$</span>iqrFl) <span class="sc">+</span> </span>
+<span id="cb30-2"><a href="ejemplo-real.html#cb30-2" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="ejemplo-real.html#cb30-3" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="ejemplo-real.html#cb30-4" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb30-5"><a href="ejemplo-real.html#cb30-5" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb30-6"><a href="ejemplo-real.html#cb30-6" tabindex="-1"></a>                         data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb30-7"><a href="ejemplo-real.html#cb30-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXARML)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXARML ~ (data$iqrFl) + (data$iqrMn) + (data$iqrPb) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.9897 -1.2849 -0.0547  1.2239  6.9139 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            17.02721773  2.81877725   6.041     0.00000000190079 ***
+## data$iqrFl             -0.03752591  0.06324794  -0.593             0.553054    
+## data$iqrMn              0.20211032  0.07477429   2.703             0.006945 ** 
+## data$iqrPb             -0.23647635  0.06536139  -3.618             0.000306 ***
+## data$iqrSe             -0.07037273  0.06820440  -1.032             0.302324    
+## data$iqrHg             -0.13132494  0.07205807  -1.822             0.068566 .  
+## data$calories           0.00026190  0.00006864   3.815             0.000141 ***
+## data$sex1               0.04316772  0.10200706   0.423             0.672218    
+## data$INDFMPIR_ts1      -0.08291354  0.10650153  -0.779             0.436377    
+## data$age                1.45909867  0.02988322  48.827 &lt; 0.0000000000000002 ***
+## data$smoke1             0.14414533  0.11702678   1.232             0.218229    
+## data$activityscore     -0.03623345  0.02333432  -1.553             0.120667    
+## data$sch_activityscore  0.06046293  0.04565863   1.324             0.185611    
+## data$race3             -0.12059720  0.13262876  -0.909             0.363336    
+## data$race4              1.04271623  0.14647785   7.119     0.00000000000163 ***
+## data$race6             -0.18073110  0.16727233  -1.080             0.280098    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.003 on 1618 degrees of freedom
+## Multiple R-squared:  0.6368, Adjusted R-squared:  0.6334 
+## F-statistic: 189.1 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="ejemplo-real.html#cb32-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXARML), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            11.50  22.56
+## data$iqrFl             -0.16   0.09
+## data$iqrMn              0.06   0.35
+## data$iqrPb             -0.36  -0.11
+## data$iqrSe             -0.20   0.06
+## data$iqrHg             -0.27   0.01
+## data$calories           0.00   0.00
+## data$sex1              -0.16   0.24
+## data$INDFMPIR_ts1      -0.29   0.13
+## data$age                1.40   1.52
+## data$smoke1            -0.09   0.37
+## data$activityscore     -0.08   0.01
+## data$sch_activityscore -0.03   0.15
+## data$race3             -0.38   0.14
+## data$race4              0.76   1.33
+## data$race6             -0.51   0.15</code></pre>
+<p><strong>Plomo (Pb)</strong></p>
+<p><strong>BMI - Body Mass Index</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="ejemplo-real.html#cb34-1" tabindex="-1"></a>Multiple_BMXBMI <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXBMI <span class="sc">~</span>  (data<span class="sc">$</span>iqrPb) <span class="sc">+</span> </span>
+<span id="cb34-2"><a href="ejemplo-real.html#cb34-2" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="ejemplo-real.html#cb34-3" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="ejemplo-real.html#cb34-4" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb34-5"><a href="ejemplo-real.html#cb34-5" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb34-6"><a href="ejemplo-real.html#cb34-6" tabindex="-1"></a>                        data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb34-7"><a href="ejemplo-real.html#cb34-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXBMI)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXBMI ~ (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.5704 -2.6281 -0.7878  1.9219 21.2766 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            13.83435915  5.60423654   2.469             0.013669 *  
+## data$iqrPb             -0.46857822  0.12995020  -3.606             0.000321 ***
+## data$iqrMn              0.88422699  0.14866474   5.948        0.00000000332 ***
+## data$iqrFl              0.00216746  0.12574828   0.017             0.986250    
+## data$iqrSe             -0.17136026  0.13560262  -1.264             0.206522    
+## data$iqrHg             -0.05304336  0.14326442  -0.370             0.711246    
+## data$calories           0.00002019  0.00013647   0.148             0.882384    
+## data$sex1               0.16830466  0.20280839   0.830             0.406735    
+## data$INDFMPIR_ts1       0.19112496  0.21174422   0.903             0.366861    
+## data$age                0.81319156  0.05941321  13.687 &lt; 0.0000000000000002 ***
+## data$smoke1             0.79310840  0.23267030   3.409             0.000669 ***
+## data$activityscore     -0.08595240  0.04639282  -1.853             0.064106 .  
+## data$sch_activityscore  0.06285977  0.09077757   0.692             0.488748    
+## data$race3             -1.06703522  0.26368984  -4.047        0.00005442844 ***
+## data$race4             -0.01497100  0.29122434  -0.051             0.959007    
+## data$race6             -1.31358144  0.33256749  -3.950        0.00008157030 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.983 on 1618 degrees of freedom
+## Multiple R-squared:  0.1714, Adjusted R-squared:  0.1637 
+## F-statistic: 22.31 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="ejemplo-real.html#cb36-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXBMI), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             2.84  24.83
+## data$iqrPb             -0.72  -0.21
+## data$iqrMn              0.59   1.18
+## data$iqrFl             -0.24   0.25
+## data$iqrSe             -0.44   0.09
+## data$iqrHg             -0.33   0.23
+## data$calories           0.00   0.00
+## data$sex1              -0.23   0.57
+## data$INDFMPIR_ts1      -0.22   0.61
+## data$age                0.70   0.93
+## data$smoke1             0.34   1.25
+## data$activityscore     -0.18   0.01
+## data$sch_activityscore -0.12   0.24
+## data$race3             -1.58  -0.55
+## data$race4             -0.59   0.56
+## data$race6             -1.97  -0.66</code></pre>
+<p><strong>Altura de pie - standing height</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="ejemplo-real.html#cb38-1" tabindex="-1"></a>Multiple_BMXHT <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXHT <span class="sc">~</span>  (data<span class="sc">$</span>iqrPb) <span class="sc">+</span> </span>
+<span id="cb38-2"><a href="ejemplo-real.html#cb38-2" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="ejemplo-real.html#cb38-3" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="ejemplo-real.html#cb38-4" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb38-5"><a href="ejemplo-real.html#cb38-5" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb38-6"><a href="ejemplo-real.html#cb38-6" tabindex="-1"></a>                       data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb38-7"><a href="ejemplo-real.html#cb38-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXHT)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXHT ~ (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -25.9506  -4.3461  -0.0962   4.2981  25.7596 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            85.3842661  9.4675336   9.019 &lt; 0.0000000000000002 ***
+## data$iqrPb             -0.6958901  0.2195318  -3.170              0.00155 ** 
+## data$iqrMn              0.6980278  0.2511472   2.779              0.00551 ** 
+## data$iqrFl             -0.0047818  0.2124332  -0.023              0.98204    
+## data$iqrSe             -0.1998397  0.2290807  -0.872              0.38314    
+## data$iqrHg             -0.4955185  0.2420242  -2.047              0.04078 *  
+## data$calories           0.0010200  0.0002306   4.424   0.0000103266450248 ***
+## data$sex1               0.0681792  0.3426150   0.199              0.84229    
+## data$INDFMPIR_ts1      -0.2016930  0.3577107  -0.564              0.57294    
+## data$age                5.8609844  0.1003699  58.394 &lt; 0.0000000000000002 ***
+## data$smoke1             0.0914630  0.3930623   0.233              0.81603    
+## data$activityscore     -0.1534204  0.0783739  -1.958              0.05046 .  
+## data$sch_activityscore  0.4584579  0.1533553   2.990              0.00284 ** 
+## data$race3              0.6842964  0.4454652   1.536              0.12470    
+## data$race4              3.6937194  0.4919807   7.508   0.0000000000000988 ***
+## data$race6              0.5696605  0.5618239   1.014              0.31076    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.729 on 1618 degrees of freedom
+## Multiple R-squared:  0.7117, Adjusted R-squared:  0.709 
+## F-statistic: 266.3 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="ejemplo-real.html#cb40-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXHT),<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            66.81 103.95
+## data$iqrPb             -1.13  -0.27
+## data$iqrMn              0.21   1.19
+## data$iqrFl             -0.42   0.41
+## data$iqrSe             -0.65   0.25
+## data$iqrHg             -0.97  -0.02
+## data$calories           0.00   0.00
+## data$sex1              -0.60   0.74
+## data$INDFMPIR_ts1      -0.90   0.50
+## data$age                5.66   6.06
+## data$smoke1            -0.68   0.86
+## data$activityscore     -0.31   0.00
+## data$sch_activityscore  0.16   0.76
+## data$race3             -0.19   1.56
+## data$race4              2.73   4.66
+## data$race6             -0.53   1.67</code></pre>
+<p><strong>Circumferencia de cintura - Waist circumference</strong></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="ejemplo-real.html#cb42-1" tabindex="-1"></a>Multiple_BMXWAIST <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXWAIST <span class="sc">~</span>  (data<span class="sc">$</span>iqrPb) <span class="sc">+</span> </span>
+<span id="cb42-2"><a href="ejemplo-real.html#cb42-2" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="ejemplo-real.html#cb42-3" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="ejemplo-real.html#cb42-4" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb42-5"><a href="ejemplo-real.html#cb42-5" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb42-6"><a href="ejemplo-real.html#cb42-6" tabindex="-1"></a>                          data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb42-7"><a href="ejemplo-real.html#cb42-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXWAIST)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXWAIST ~ (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -25.396  -7.175  -2.387   5.612  53.717 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            37.7605683 14.9738638   2.522             0.011772 *  
+## data$iqrPb             -1.2919793  0.3472117  -3.721             0.000205 ***
+## data$iqrMn              2.4682643  0.3972148   6.214       0.000000000656 ***
+## data$iqrFl              0.1010685  0.3359847   0.301             0.763596    
+## data$iqrSe             -0.3059415  0.3623143  -0.844             0.398566    
+## data$iqrHg             -0.1965434  0.3827858  -0.513             0.607703    
+## data$calories           0.0001977  0.0003646   0.542             0.587797    
+## data$sex1               0.3926075  0.5418803   0.725             0.468846    
+## data$INDFMPIR_ts1       0.4374163  0.5657558   0.773             0.439544    
+## data$age                3.1167316  0.1587451  19.634 &lt; 0.0000000000000002 ***
+## data$smoke1             2.1096609  0.6216678   3.394             0.000707 ***
+## data$activityscore     -0.2943821  0.1239562  -2.375             0.017670 *  
+## data$sch_activityscore  0.1696810  0.2425470   0.700             0.484290    
+## data$race3             -2.4369929  0.7045484  -3.459             0.000556 ***
+## data$race4             -2.3613436  0.7781173  -3.035             0.002446 ** 
+## data$race6             -3.8936303  0.8885814  -4.382       0.000012524106 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.64 on 1618 degrees of freedom
+## Multiple R-squared:  0.2655, Adjusted R-squared:  0.2587 
+## F-statistic: 38.99 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="ejemplo-real.html#cb44-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXWAIST), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             8.39  67.13
+## data$iqrPb             -1.97  -0.61
+## data$iqrMn              1.69   3.25
+## data$iqrFl             -0.56   0.76
+## data$iqrSe             -1.02   0.40
+## data$iqrHg             -0.95   0.55
+## data$calories           0.00   0.00
+## data$sex1              -0.67   1.46
+## data$INDFMPIR_ts1      -0.67   1.55
+## data$age                2.81   3.43
+## data$smoke1             0.89   3.33
+## data$activityscore     -0.54  -0.05
+## data$sch_activityscore -0.31   0.65
+## data$race3             -3.82  -1.06
+## data$race4             -3.89  -0.84
+## data$race6             -5.64  -2.15</code></pre>
+<p><strong>Longitud del brazo superior - Upper arm length</strong></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="ejemplo-real.html#cb46-1" tabindex="-1"></a>Multiple_BMXARML <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXARML <span class="sc">~</span>  (data<span class="sc">$</span>iqrPb) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="ejemplo-real.html#cb46-2" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="ejemplo-real.html#cb46-3" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="ejemplo-real.html#cb46-4" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb46-5"><a href="ejemplo-real.html#cb46-5" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb46-6"><a href="ejemplo-real.html#cb46-6" tabindex="-1"></a>                         data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb46-7"><a href="ejemplo-real.html#cb46-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXARML)</span>
+<span id="cb46-8"><a href="ejemplo-real.html#cb46-8" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXARML), <span class="dv">2</span>)</span></code></pre></div>
+<p><strong>Manganeso (Mn)</strong></p>
+<p><strong>BMI - Body Mass Index</strong></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="ejemplo-real.html#cb47-1" tabindex="-1"></a>Multiple_BMXBMI <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXBMI <span class="sc">~</span>  (data<span class="sc">$</span>iqrMn) <span class="sc">+</span> </span>
+<span id="cb47-2"><a href="ejemplo-real.html#cb47-2" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="ejemplo-real.html#cb47-3" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb47-4"><a href="ejemplo-real.html#cb47-4" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb47-5"><a href="ejemplo-real.html#cb47-5" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb47-6"><a href="ejemplo-real.html#cb47-6" tabindex="-1"></a>                        data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb47-7"><a href="ejemplo-real.html#cb47-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXBMI)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXBMI ~ (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.5704 -2.6281 -0.7878  1.9219 21.2766 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            13.83435915  5.60423654   2.469             0.013669 *  
+## data$iqrMn              0.88422699  0.14866474   5.948        0.00000000332 ***
+## data$iqrPb             -0.46857822  0.12995020  -3.606             0.000321 ***
+## data$iqrFl              0.00216746  0.12574828   0.017             0.986250    
+## data$iqrSe             -0.17136026  0.13560262  -1.264             0.206522    
+## data$iqrHg             -0.05304336  0.14326442  -0.370             0.711246    
+## data$calories           0.00002019  0.00013647   0.148             0.882384    
+## data$sex1               0.16830466  0.20280839   0.830             0.406735    
+## data$INDFMPIR_ts1       0.19112496  0.21174422   0.903             0.366861    
+## data$age                0.81319156  0.05941321  13.687 &lt; 0.0000000000000002 ***
+## data$smoke1             0.79310840  0.23267030   3.409             0.000669 ***
+## data$activityscore     -0.08595240  0.04639282  -1.853             0.064106 .  
+## data$sch_activityscore  0.06285977  0.09077757   0.692             0.488748    
+## data$race3             -1.06703522  0.26368984  -4.047        0.00005442844 ***
+## data$race4             -0.01497100  0.29122434  -0.051             0.959007    
+## data$race6             -1.31358144  0.33256749  -3.950        0.00008157030 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.983 on 1618 degrees of freedom
+## Multiple R-squared:  0.1714, Adjusted R-squared:  0.1637 
+## F-statistic: 22.31 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="ejemplo-real.html#cb49-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXBMI), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             2.84  24.83
+## data$iqrMn              0.59   1.18
+## data$iqrPb             -0.72  -0.21
+## data$iqrFl             -0.24   0.25
+## data$iqrSe             -0.44   0.09
+## data$iqrHg             -0.33   0.23
+## data$calories           0.00   0.00
+## data$sex1              -0.23   0.57
+## data$INDFMPIR_ts1      -0.22   0.61
+## data$age                0.70   0.93
+## data$smoke1             0.34   1.25
+## data$activityscore     -0.18   0.01
+## data$sch_activityscore -0.12   0.24
+## data$race3             -1.58  -0.55
+## data$race4             -0.59   0.56
+## data$race6             -1.97  -0.66</code></pre>
+<p><strong>Altura de pie - standing height</strong></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="ejemplo-real.html#cb51-1" tabindex="-1"></a>Multiple_BMXHT <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXHT <span class="sc">~</span>  (data<span class="sc">$</span>iqrMn) <span class="sc">+</span> </span>
+<span id="cb51-2"><a href="ejemplo-real.html#cb51-2" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="ejemplo-real.html#cb51-3" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb51-4"><a href="ejemplo-real.html#cb51-4" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb51-5"><a href="ejemplo-real.html#cb51-5" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb51-6"><a href="ejemplo-real.html#cb51-6" tabindex="-1"></a>                       data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb51-7"><a href="ejemplo-real.html#cb51-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXHT)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXHT ~ (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -25.9506  -4.3461  -0.0962   4.2981  25.7596 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            85.3842661  9.4675336   9.019 &lt; 0.0000000000000002 ***
+## data$iqrMn              0.6980278  0.2511472   2.779              0.00551 ** 
+## data$iqrPb             -0.6958901  0.2195318  -3.170              0.00155 ** 
+## data$iqrFl             -0.0047818  0.2124332  -0.023              0.98204    
+## data$iqrSe             -0.1998397  0.2290807  -0.872              0.38314    
+## data$iqrHg             -0.4955185  0.2420242  -2.047              0.04078 *  
+## data$calories           0.0010200  0.0002306   4.424   0.0000103266450248 ***
+## data$sex1               0.0681792  0.3426150   0.199              0.84229    
+## data$INDFMPIR_ts1      -0.2016930  0.3577107  -0.564              0.57294    
+## data$age                5.8609844  0.1003699  58.394 &lt; 0.0000000000000002 ***
+## data$smoke1             0.0914630  0.3930623   0.233              0.81603    
+## data$activityscore     -0.1534204  0.0783739  -1.958              0.05046 .  
+## data$sch_activityscore  0.4584579  0.1533553   2.990              0.00284 ** 
+## data$race3              0.6842964  0.4454652   1.536              0.12470    
+## data$race4              3.6937194  0.4919807   7.508   0.0000000000000988 ***
+## data$race6              0.5696605  0.5618239   1.014              0.31076    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.729 on 1618 degrees of freedom
+## Multiple R-squared:  0.7117, Adjusted R-squared:  0.709 
+## F-statistic: 266.3 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="ejemplo-real.html#cb53-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXHT),<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            66.81 103.95
+## data$iqrMn              0.21   1.19
+## data$iqrPb             -1.13  -0.27
+## data$iqrFl             -0.42   0.41
+## data$iqrSe             -0.65   0.25
+## data$iqrHg             -0.97  -0.02
+## data$calories           0.00   0.00
+## data$sex1              -0.60   0.74
+## data$INDFMPIR_ts1      -0.90   0.50
+## data$age                5.66   6.06
+## data$smoke1            -0.68   0.86
+## data$activityscore     -0.31   0.00
+## data$sch_activityscore  0.16   0.76
+## data$race3             -0.19   1.56
+## data$race4              2.73   4.66
+## data$race6             -0.53   1.67</code></pre>
+<p><strong>Circumferencia de cintura - Waist circumference</strong></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="ejemplo-real.html#cb55-1" tabindex="-1"></a>Multiple_BMXWAIST <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXWAIST <span class="sc">~</span>  (data<span class="sc">$</span>iqrMn) <span class="sc">+</span> </span>
+<span id="cb55-2"><a href="ejemplo-real.html#cb55-2" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb55-3"><a href="ejemplo-real.html#cb55-3" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="ejemplo-real.html#cb55-4" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb55-5"><a href="ejemplo-real.html#cb55-5" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb55-6"><a href="ejemplo-real.html#cb55-6" tabindex="-1"></a>                          data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb55-7"><a href="ejemplo-real.html#cb55-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXWAIST)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXWAIST ~ (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -25.396  -7.175  -2.387   5.612  53.717 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            37.7605683 14.9738638   2.522             0.011772 *  
+## data$iqrMn              2.4682643  0.3972148   6.214       0.000000000656 ***
+## data$iqrPb             -1.2919793  0.3472117  -3.721             0.000205 ***
+## data$iqrFl              0.1010685  0.3359847   0.301             0.763596    
+## data$iqrSe             -0.3059415  0.3623143  -0.844             0.398566    
+## data$iqrHg             -0.1965434  0.3827858  -0.513             0.607703    
+## data$calories           0.0001977  0.0003646   0.542             0.587797    
+## data$sex1               0.3926075  0.5418803   0.725             0.468846    
+## data$INDFMPIR_ts1       0.4374163  0.5657558   0.773             0.439544    
+## data$age                3.1167316  0.1587451  19.634 &lt; 0.0000000000000002 ***
+## data$smoke1             2.1096609  0.6216678   3.394             0.000707 ***
+## data$activityscore     -0.2943821  0.1239562  -2.375             0.017670 *  
+## data$sch_activityscore  0.1696810  0.2425470   0.700             0.484290    
+## data$race3             -2.4369929  0.7045484  -3.459             0.000556 ***
+## data$race4             -2.3613436  0.7781173  -3.035             0.002446 ** 
+## data$race6             -3.8936303  0.8885814  -4.382       0.000012524106 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.64 on 1618 degrees of freedom
+## Multiple R-squared:  0.2655, Adjusted R-squared:  0.2587 
+## F-statistic: 38.99 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="ejemplo-real.html#cb57-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXWAIST), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             8.39  67.13
+## data$iqrMn              1.69   3.25
+## data$iqrPb             -1.97  -0.61
+## data$iqrFl             -0.56   0.76
+## data$iqrSe             -1.02   0.40
+## data$iqrHg             -0.95   0.55
+## data$calories           0.00   0.00
+## data$sex1              -0.67   1.46
+## data$INDFMPIR_ts1      -0.67   1.55
+## data$age                2.81   3.43
+## data$smoke1             0.89   3.33
+## data$activityscore     -0.54  -0.05
+## data$sch_activityscore -0.31   0.65
+## data$race3             -3.82  -1.06
+## data$race4             -3.89  -0.84
+## data$race6             -5.64  -2.15</code></pre>
+<p><strong>Longitud del brazo superior - Upper arm length</strong></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="ejemplo-real.html#cb59-1" tabindex="-1"></a>Multiple_BMXARML <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXARML <span class="sc">~</span>  (data<span class="sc">$</span>iqrMn) <span class="sc">+</span> </span>
+<span id="cb59-2"><a href="ejemplo-real.html#cb59-2" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb59-3"><a href="ejemplo-real.html#cb59-3" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb59-4"><a href="ejemplo-real.html#cb59-4" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb59-5"><a href="ejemplo-real.html#cb59-5" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrHg) <span class="sc">+</span></span>
+<span id="cb59-6"><a href="ejemplo-real.html#cb59-6" tabindex="-1"></a>                         data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb59-7"><a href="ejemplo-real.html#cb59-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXARML)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXARML ~ (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.9897 -1.2849 -0.0547  1.2239  6.9139 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            17.02721773  2.81877725   6.041     0.00000000190079 ***
+## data$iqrMn              0.20211032  0.07477429   2.703             0.006945 ** 
+## data$iqrPb             -0.23647635  0.06536139  -3.618             0.000306 ***
+## data$iqrFl             -0.03752591  0.06324794  -0.593             0.553054    
+## data$iqrSe             -0.07037273  0.06820440  -1.032             0.302324    
+## data$iqrHg             -0.13132494  0.07205807  -1.822             0.068566 .  
+## data$calories           0.00026190  0.00006864   3.815             0.000141 ***
+## data$sex1               0.04316772  0.10200706   0.423             0.672218    
+## data$INDFMPIR_ts1      -0.08291354  0.10650153  -0.779             0.436377    
+## data$age                1.45909867  0.02988322  48.827 &lt; 0.0000000000000002 ***
+## data$smoke1             0.14414533  0.11702678   1.232             0.218229    
+## data$activityscore     -0.03623345  0.02333432  -1.553             0.120667    
+## data$sch_activityscore  0.06046293  0.04565863   1.324             0.185611    
+## data$race3             -0.12059720  0.13262876  -0.909             0.363336    
+## data$race4              1.04271623  0.14647785   7.119     0.00000000000163 ***
+## data$race6             -0.18073110  0.16727233  -1.080             0.280098    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.003 on 1618 degrees of freedom
+## Multiple R-squared:  0.6368, Adjusted R-squared:  0.6334 
+## F-statistic: 189.1 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="ejemplo-real.html#cb61-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXARML), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            11.50  22.56
+## data$iqrMn              0.06   0.35
+## data$iqrPb             -0.36  -0.11
+## data$iqrFl             -0.16   0.09
+## data$iqrSe             -0.20   0.06
+## data$iqrHg             -0.27   0.01
+## data$calories           0.00   0.00
+## data$sex1              -0.16   0.24
+## data$INDFMPIR_ts1      -0.29   0.13
+## data$age                1.40   1.52
+## data$smoke1            -0.09   0.37
+## data$activityscore     -0.08   0.01
+## data$sch_activityscore -0.03   0.15
+## data$race3             -0.38   0.14
+## data$race4              0.76   1.33
+## data$race6             -0.51   0.15</code></pre>
+<p><strong>Mercurio (Hg)</strong></p>
+<p><strong>BMI - Body Mass Index</strong></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="ejemplo-real.html#cb63-1" tabindex="-1"></a>Multiple_BMXBMI <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXBMI <span class="sc">~</span>  (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb63-2"><a href="ejemplo-real.html#cb63-2" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb63-3"><a href="ejemplo-real.html#cb63-3" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb63-4"><a href="ejemplo-real.html#cb63-4" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb63-5"><a href="ejemplo-real.html#cb63-5" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrMn) <span class="sc">+</span> </span>
+<span id="cb63-6"><a href="ejemplo-real.html#cb63-6" tabindex="-1"></a>                        data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb63-7"><a href="ejemplo-real.html#cb63-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXBMI)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXBMI ~ (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.5704 -2.6281 -0.7878  1.9219 21.2766 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            13.83435915  5.60423654   2.469             0.013669 *  
+## data$iqrHg             -0.05304336  0.14326442  -0.370             0.711246    
+## data$iqrPb             -0.46857822  0.12995020  -3.606             0.000321 ***
+## data$iqrFl              0.00216746  0.12574828   0.017             0.986250    
+## data$iqrSe             -0.17136026  0.13560262  -1.264             0.206522    
+## data$iqrMn              0.88422699  0.14866474   5.948        0.00000000332 ***
+## data$calories           0.00002019  0.00013647   0.148             0.882384    
+## data$sex1               0.16830466  0.20280839   0.830             0.406735    
+## data$INDFMPIR_ts1       0.19112496  0.21174422   0.903             0.366861    
+## data$age                0.81319156  0.05941321  13.687 &lt; 0.0000000000000002 ***
+## data$smoke1             0.79310840  0.23267030   3.409             0.000669 ***
+## data$activityscore     -0.08595240  0.04639282  -1.853             0.064106 .  
+## data$sch_activityscore  0.06285977  0.09077757   0.692             0.488748    
+## data$race3             -1.06703522  0.26368984  -4.047        0.00005442844 ***
+## data$race4             -0.01497100  0.29122434  -0.051             0.959007    
+## data$race6             -1.31358144  0.33256749  -3.950        0.00008157030 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.983 on 1618 degrees of freedom
+## Multiple R-squared:  0.1714, Adjusted R-squared:  0.1637 
+## F-statistic: 22.31 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="ejemplo-real.html#cb65-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXBMI), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             2.84  24.83
+## data$iqrHg             -0.33   0.23
+## data$iqrPb             -0.72  -0.21
+## data$iqrFl             -0.24   0.25
+## data$iqrSe             -0.44   0.09
+## data$iqrMn              0.59   1.18
+## data$calories           0.00   0.00
+## data$sex1              -0.23   0.57
+## data$INDFMPIR_ts1      -0.22   0.61
+## data$age                0.70   0.93
+## data$smoke1             0.34   1.25
+## data$activityscore     -0.18   0.01
+## data$sch_activityscore -0.12   0.24
+## data$race3             -1.58  -0.55
+## data$race4             -0.59   0.56
+## data$race6             -1.97  -0.66</code></pre>
+<p><strong>Altura de pie - standing height</strong></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="ejemplo-real.html#cb67-1" tabindex="-1"></a>Multiple_BMXHT <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXHT <span class="sc">~</span>  (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb67-2"><a href="ejemplo-real.html#cb67-2" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb67-3"><a href="ejemplo-real.html#cb67-3" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb67-4"><a href="ejemplo-real.html#cb67-4" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb67-5"><a href="ejemplo-real.html#cb67-5" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb67-6"><a href="ejemplo-real.html#cb67-6" tabindex="-1"></a>                       data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb67-7"><a href="ejemplo-real.html#cb67-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXHT)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXHT ~ (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -25.9506  -4.3461  -0.0962   4.2981  25.7596 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            85.3842661  9.4675336   9.019 &lt; 0.0000000000000002 ***
+## data$iqrHg             -0.4955185  0.2420242  -2.047              0.04078 *  
+## data$iqrPb             -0.6958901  0.2195318  -3.170              0.00155 ** 
+## data$iqrFl             -0.0047818  0.2124332  -0.023              0.98204    
+## data$iqrSe             -0.1998397  0.2290807  -0.872              0.38314    
+## data$iqrMn              0.6980278  0.2511472   2.779              0.00551 ** 
+## data$calories           0.0010200  0.0002306   4.424   0.0000103266450248 ***
+## data$sex1               0.0681792  0.3426150   0.199              0.84229    
+## data$INDFMPIR_ts1      -0.2016930  0.3577107  -0.564              0.57294    
+## data$age                5.8609844  0.1003699  58.394 &lt; 0.0000000000000002 ***
+## data$smoke1             0.0914630  0.3930623   0.233              0.81603    
+## data$activityscore     -0.1534204  0.0783739  -1.958              0.05046 .  
+## data$sch_activityscore  0.4584579  0.1533553   2.990              0.00284 ** 
+## data$race3              0.6842964  0.4454652   1.536              0.12470    
+## data$race4              3.6937194  0.4919807   7.508   0.0000000000000988 ***
+## data$race6              0.5696605  0.5618239   1.014              0.31076    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.729 on 1618 degrees of freedom
+## Multiple R-squared:  0.7117, Adjusted R-squared:  0.709 
+## F-statistic: 266.3 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="ejemplo-real.html#cb69-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXHT),<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            66.81 103.95
+## data$iqrHg             -0.97  -0.02
+## data$iqrPb             -1.13  -0.27
+## data$iqrFl             -0.42   0.41
+## data$iqrSe             -0.65   0.25
+## data$iqrMn              0.21   1.19
+## data$calories           0.00   0.00
+## data$sex1              -0.60   0.74
+## data$INDFMPIR_ts1      -0.90   0.50
+## data$age                5.66   6.06
+## data$smoke1            -0.68   0.86
+## data$activityscore     -0.31   0.00
+## data$sch_activityscore  0.16   0.76
+## data$race3             -0.19   1.56
+## data$race4              2.73   4.66
+## data$race6             -0.53   1.67</code></pre>
+<p><strong>Circumferencia de cintura - Waist circumference</strong></p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="ejemplo-real.html#cb71-1" tabindex="-1"></a>Multiple_BMXWAIST <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXWAIST <span class="sc">~</span>  (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb71-2"><a href="ejemplo-real.html#cb71-2" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb71-3"><a href="ejemplo-real.html#cb71-3" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb71-4"><a href="ejemplo-real.html#cb71-4" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb71-5"><a href="ejemplo-real.html#cb71-5" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb71-6"><a href="ejemplo-real.html#cb71-6" tabindex="-1"></a>                          data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb71-7"><a href="ejemplo-real.html#cb71-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXWAIST)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXWAIST ~ (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -25.396  -7.175  -2.387   5.612  53.717 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            37.7605683 14.9738638   2.522             0.011772 *  
+## data$iqrHg             -0.1965434  0.3827858  -0.513             0.607703    
+## data$iqrPb             -1.2919793  0.3472117  -3.721             0.000205 ***
+## data$iqrFl              0.1010685  0.3359847   0.301             0.763596    
+## data$iqrSe             -0.3059415  0.3623143  -0.844             0.398566    
+## data$iqrMn              2.4682643  0.3972148   6.214       0.000000000656 ***
+## data$calories           0.0001977  0.0003646   0.542             0.587797    
+## data$sex1               0.3926075  0.5418803   0.725             0.468846    
+## data$INDFMPIR_ts1       0.4374163  0.5657558   0.773             0.439544    
+## data$age                3.1167316  0.1587451  19.634 &lt; 0.0000000000000002 ***
+## data$smoke1             2.1096609  0.6216678   3.394             0.000707 ***
+## data$activityscore     -0.2943821  0.1239562  -2.375             0.017670 *  
+## data$sch_activityscore  0.1696810  0.2425470   0.700             0.484290    
+## data$race3             -2.4369929  0.7045484  -3.459             0.000556 ***
+## data$race4             -2.3613436  0.7781173  -3.035             0.002446 ** 
+## data$race6             -3.8936303  0.8885814  -4.382       0.000012524106 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.64 on 1618 degrees of freedom
+## Multiple R-squared:  0.2655, Adjusted R-squared:  0.2587 
+## F-statistic: 38.99 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="ejemplo-real.html#cb73-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXWAIST), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             8.39  67.13
+## data$iqrHg             -0.95   0.55
+## data$iqrPb             -1.97  -0.61
+## data$iqrFl             -0.56   0.76
+## data$iqrSe             -1.02   0.40
+## data$iqrMn              1.69   3.25
+## data$calories           0.00   0.00
+## data$sex1              -0.67   1.46
+## data$INDFMPIR_ts1      -0.67   1.55
+## data$age                2.81   3.43
+## data$smoke1             0.89   3.33
+## data$activityscore     -0.54  -0.05
+## data$sch_activityscore -0.31   0.65
+## data$race3             -3.82  -1.06
+## data$race4             -3.89  -0.84
+## data$race6             -5.64  -2.15</code></pre>
+<p><strong>Longitud del brazo superior - Upper arm length</strong></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="ejemplo-real.html#cb75-1" tabindex="-1"></a>Multiple_BMXARML <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXARML <span class="sc">~</span>  (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb75-2"><a href="ejemplo-real.html#cb75-2" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb75-3"><a href="ejemplo-real.html#cb75-3" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb75-4"><a href="ejemplo-real.html#cb75-4" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb75-5"><a href="ejemplo-real.html#cb75-5" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb75-6"><a href="ejemplo-real.html#cb75-6" tabindex="-1"></a>                         data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb75-7"><a href="ejemplo-real.html#cb75-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXARML)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXARML ~ (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrSe) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.9897 -1.2849 -0.0547  1.2239  6.9139 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            17.02721773  2.81877725   6.041     0.00000000190079 ***
+## data$iqrHg             -0.13132494  0.07205807  -1.822             0.068566 .  
+## data$iqrPb             -0.23647635  0.06536139  -3.618             0.000306 ***
+## data$iqrFl             -0.03752591  0.06324794  -0.593             0.553054    
+## data$iqrSe             -0.07037273  0.06820440  -1.032             0.302324    
+## data$iqrMn              0.20211032  0.07477429   2.703             0.006945 ** 
+## data$calories           0.00026190  0.00006864   3.815             0.000141 ***
+## data$sex1               0.04316772  0.10200706   0.423             0.672218    
+## data$INDFMPIR_ts1      -0.08291354  0.10650153  -0.779             0.436377    
+## data$age                1.45909867  0.02988322  48.827 &lt; 0.0000000000000002 ***
+## data$smoke1             0.14414533  0.11702678   1.232             0.218229    
+## data$activityscore     -0.03623345  0.02333432  -1.553             0.120667    
+## data$sch_activityscore  0.06046293  0.04565863   1.324             0.185611    
+## data$race3             -0.12059720  0.13262876  -0.909             0.363336    
+## data$race4              1.04271623  0.14647785   7.119     0.00000000000163 ***
+## data$race6             -0.18073110  0.16727233  -1.080             0.280098    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.003 on 1618 degrees of freedom
+## Multiple R-squared:  0.6368, Adjusted R-squared:  0.6334 
+## F-statistic: 189.1 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="ejemplo-real.html#cb77-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXARML), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            11.50  22.56
+## data$iqrHg             -0.27   0.01
+## data$iqrPb             -0.36  -0.11
+## data$iqrFl             -0.16   0.09
+## data$iqrSe             -0.20   0.06
+## data$iqrMn              0.06   0.35
+## data$calories           0.00   0.00
+## data$sex1              -0.16   0.24
+## data$INDFMPIR_ts1      -0.29   0.13
+## data$age                1.40   1.52
+## data$smoke1            -0.09   0.37
+## data$activityscore     -0.08   0.01
+## data$sch_activityscore -0.03   0.15
+## data$race3             -0.38   0.14
+## data$race4              0.76   1.33
+## data$race6             -0.51   0.15</code></pre>
+<p><strong>Selenium (Se)</strong></p>
+<p><strong>BMI - Body Mass Index</strong></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="ejemplo-real.html#cb79-1" tabindex="-1"></a>Multiple_BMXBMI <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXBMI <span class="sc">~</span>  (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb79-2"><a href="ejemplo-real.html#cb79-2" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb79-3"><a href="ejemplo-real.html#cb79-3" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb79-4"><a href="ejemplo-real.html#cb79-4" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb79-5"><a href="ejemplo-real.html#cb79-5" tabindex="-1"></a>                        (data<span class="sc">$</span>iqrMn) <span class="sc">+</span> </span>
+<span id="cb79-6"><a href="ejemplo-real.html#cb79-6" tabindex="-1"></a>                        data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb79-7"><a href="ejemplo-real.html#cb79-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXBMI)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXBMI ~ (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrHg) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.5704 -2.6281 -0.7878  1.9219 21.2766 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            13.83435915  5.60423654   2.469             0.013669 *  
+## data$iqrSe             -0.17136026  0.13560262  -1.264             0.206522    
+## data$iqrPb             -0.46857822  0.12995020  -3.606             0.000321 ***
+## data$iqrFl              0.00216746  0.12574828   0.017             0.986250    
+## data$iqrHg             -0.05304336  0.14326442  -0.370             0.711246    
+## data$iqrMn              0.88422699  0.14866474   5.948        0.00000000332 ***
+## data$calories           0.00002019  0.00013647   0.148             0.882384    
+## data$sex1               0.16830466  0.20280839   0.830             0.406735    
+## data$INDFMPIR_ts1       0.19112496  0.21174422   0.903             0.366861    
+## data$age                0.81319156  0.05941321  13.687 &lt; 0.0000000000000002 ***
+## data$smoke1             0.79310840  0.23267030   3.409             0.000669 ***
+## data$activityscore     -0.08595240  0.04639282  -1.853             0.064106 .  
+## data$sch_activityscore  0.06285977  0.09077757   0.692             0.488748    
+## data$race3             -1.06703522  0.26368984  -4.047        0.00005442844 ***
+## data$race4             -0.01497100  0.29122434  -0.051             0.959007    
+## data$race6             -1.31358144  0.33256749  -3.950        0.00008157030 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.983 on 1618 degrees of freedom
+## Multiple R-squared:  0.1714, Adjusted R-squared:  0.1637 
+## F-statistic: 22.31 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="ejemplo-real.html#cb81-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXBMI), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             2.84  24.83
+## data$iqrSe             -0.44   0.09
+## data$iqrPb             -0.72  -0.21
+## data$iqrFl             -0.24   0.25
+## data$iqrHg             -0.33   0.23
+## data$iqrMn              0.59   1.18
+## data$calories           0.00   0.00
+## data$sex1              -0.23   0.57
+## data$INDFMPIR_ts1      -0.22   0.61
+## data$age                0.70   0.93
+## data$smoke1             0.34   1.25
+## data$activityscore     -0.18   0.01
+## data$sch_activityscore -0.12   0.24
+## data$race3             -1.58  -0.55
+## data$race4             -0.59   0.56
+## data$race6             -1.97  -0.66</code></pre>
+<p><strong>Altura de pie - standing height</strong></p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="ejemplo-real.html#cb83-1" tabindex="-1"></a>Multiple_BMXHT <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXHT <span class="sc">~</span>  (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb83-2"><a href="ejemplo-real.html#cb83-2" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb83-3"><a href="ejemplo-real.html#cb83-3" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb83-4"><a href="ejemplo-real.html#cb83-4" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb83-5"><a href="ejemplo-real.html#cb83-5" tabindex="-1"></a>                       (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb83-6"><a href="ejemplo-real.html#cb83-6" tabindex="-1"></a>                       data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb83-7"><a href="ejemplo-real.html#cb83-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXHT)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXHT ~ (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrHg) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -25.9506  -4.3461  -0.0962   4.2981  25.7596 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            85.3842661  9.4675336   9.019 &lt; 0.0000000000000002 ***
+## data$iqrSe             -0.1998397  0.2290807  -0.872              0.38314    
+## data$iqrPb             -0.6958901  0.2195318  -3.170              0.00155 ** 
+## data$iqrFl             -0.0047818  0.2124332  -0.023              0.98204    
+## data$iqrHg             -0.4955185  0.2420242  -2.047              0.04078 *  
+## data$iqrMn              0.6980278  0.2511472   2.779              0.00551 ** 
+## data$calories           0.0010200  0.0002306   4.424   0.0000103266450248 ***
+## data$sex1               0.0681792  0.3426150   0.199              0.84229    
+## data$INDFMPIR_ts1      -0.2016930  0.3577107  -0.564              0.57294    
+## data$age                5.8609844  0.1003699  58.394 &lt; 0.0000000000000002 ***
+## data$smoke1             0.0914630  0.3930623   0.233              0.81603    
+## data$activityscore     -0.1534204  0.0783739  -1.958              0.05046 .  
+## data$sch_activityscore  0.4584579  0.1533553   2.990              0.00284 ** 
+## data$race3              0.6842964  0.4454652   1.536              0.12470    
+## data$race4              3.6937194  0.4919807   7.508   0.0000000000000988 ***
+## data$race6              0.5696605  0.5618239   1.014              0.31076    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6.729 on 1618 degrees of freedom
+## Multiple R-squared:  0.7117, Adjusted R-squared:  0.709 
+## F-statistic: 266.3 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="ejemplo-real.html#cb85-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXHT),<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            66.81 103.95
+## data$iqrSe             -0.65   0.25
+## data$iqrPb             -1.13  -0.27
+## data$iqrFl             -0.42   0.41
+## data$iqrHg             -0.97  -0.02
+## data$iqrMn              0.21   1.19
+## data$calories           0.00   0.00
+## data$sex1              -0.60   0.74
+## data$INDFMPIR_ts1      -0.90   0.50
+## data$age                5.66   6.06
+## data$smoke1            -0.68   0.86
+## data$activityscore     -0.31   0.00
+## data$sch_activityscore  0.16   0.76
+## data$race3             -0.19   1.56
+## data$race4              2.73   4.66
+## data$race6             -0.53   1.67</code></pre>
+<p><strong>Circumferencia de cintura - Waist circumference</strong></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="ejemplo-real.html#cb87-1" tabindex="-1"></a>Multiple_BMXWAIST <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXWAIST <span class="sc">~</span>  (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb87-2"><a href="ejemplo-real.html#cb87-2" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb87-3"><a href="ejemplo-real.html#cb87-3" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb87-4"><a href="ejemplo-real.html#cb87-4" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb87-5"><a href="ejemplo-real.html#cb87-5" tabindex="-1"></a>                          (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb87-6"><a href="ejemplo-real.html#cb87-6" tabindex="-1"></a>                          data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb87-7"><a href="ejemplo-real.html#cb87-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXWAIST)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXWAIST ~ (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrHg) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -25.396  -7.175  -2.387   5.612  53.717 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            37.7605683 14.9738638   2.522             0.011772 *  
+## data$iqrSe             -0.3059415  0.3623143  -0.844             0.398566    
+## data$iqrPb             -1.2919793  0.3472117  -3.721             0.000205 ***
+## data$iqrFl              0.1010685  0.3359847   0.301             0.763596    
+## data$iqrHg             -0.1965434  0.3827858  -0.513             0.607703    
+## data$iqrMn              2.4682643  0.3972148   6.214       0.000000000656 ***
+## data$calories           0.0001977  0.0003646   0.542             0.587797    
+## data$sex1               0.3926075  0.5418803   0.725             0.468846    
+## data$INDFMPIR_ts1       0.4374163  0.5657558   0.773             0.439544    
+## data$age                3.1167316  0.1587451  19.634 &lt; 0.0000000000000002 ***
+## data$smoke1             2.1096609  0.6216678   3.394             0.000707 ***
+## data$activityscore     -0.2943821  0.1239562  -2.375             0.017670 *  
+## data$sch_activityscore  0.1696810  0.2425470   0.700             0.484290    
+## data$race3             -2.4369929  0.7045484  -3.459             0.000556 ***
+## data$race4             -2.3613436  0.7781173  -3.035             0.002446 ** 
+## data$race6             -3.8936303  0.8885814  -4.382       0.000012524106 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.64 on 1618 degrees of freedom
+## Multiple R-squared:  0.2655, Adjusted R-squared:  0.2587 
+## F-statistic: 38.99 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="ejemplo-real.html#cb89-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXWAIST), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)             8.39  67.13
+## data$iqrSe             -1.02   0.40
+## data$iqrPb             -1.97  -0.61
+## data$iqrFl             -0.56   0.76
+## data$iqrHg             -0.95   0.55
+## data$iqrMn              1.69   3.25
+## data$calories           0.00   0.00
+## data$sex1              -0.67   1.46
+## data$INDFMPIR_ts1      -0.67   1.55
+## data$age                2.81   3.43
+## data$smoke1             0.89   3.33
+## data$activityscore     -0.54  -0.05
+## data$sch_activityscore -0.31   0.65
+## data$race3             -3.82  -1.06
+## data$race4             -3.89  -0.84
+## data$race6             -5.64  -2.15</code></pre>
+<p><strong>Longitud del brazo superior - Upper arm length</strong></p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="ejemplo-real.html#cb91-1" tabindex="-1"></a>Multiple_BMXARML <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>BMXARML <span class="sc">~</span>  (data<span class="sc">$</span>iqrSe) <span class="sc">+</span> </span>
+<span id="cb91-2"><a href="ejemplo-real.html#cb91-2" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrPb) <span class="sc">+</span></span>
+<span id="cb91-3"><a href="ejemplo-real.html#cb91-3" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrFl) <span class="sc">+</span></span>
+<span id="cb91-4"><a href="ejemplo-real.html#cb91-4" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrHg) <span class="sc">+</span> </span>
+<span id="cb91-5"><a href="ejemplo-real.html#cb91-5" tabindex="-1"></a>                         (data<span class="sc">$</span>iqrMn) <span class="sc">+</span></span>
+<span id="cb91-6"><a href="ejemplo-real.html#cb91-6" tabindex="-1"></a>                         data<span class="sc">$</span>calories <span class="sc">+</span> data<span class="sc">$</span>sex <span class="sc">+</span> data<span class="sc">$</span>INDFMPIR_ts <span class="sc">+</span> data<span class="sc">$</span>age <span class="sc">+</span> data<span class="sc">$</span>smoke <span class="sc">+</span> data<span class="sc">$</span>activityscore <span class="sc">+</span> data<span class="sc">$</span>sch_activityscore <span class="sc">+</span> data<span class="sc">$</span>race) </span>
+<span id="cb91-7"><a href="ejemplo-real.html#cb91-7" tabindex="-1"></a><span class="fu">summary</span>(Multiple_BMXARML)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = data$BMXARML ~ (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + 
+##     (data$iqrHg) + (data$iqrMn) + data$calories + data$sex + 
+##     data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + 
+##     data$sch_activityscore + data$race)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.9897 -1.2849 -0.0547  1.2239  6.9139 
+## 
+## Coefficients:
+##                           Estimate  Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)            17.02721773  2.81877725   6.041     0.00000000190079 ***
+## data$iqrSe             -0.07037273  0.06820440  -1.032             0.302324    
+## data$iqrPb             -0.23647635  0.06536139  -3.618             0.000306 ***
+## data$iqrFl             -0.03752591  0.06324794  -0.593             0.553054    
+## data$iqrHg             -0.13132494  0.07205807  -1.822             0.068566 .  
+## data$iqrMn              0.20211032  0.07477429   2.703             0.006945 ** 
+## data$calories           0.00026190  0.00006864   3.815             0.000141 ***
+## data$sex1               0.04316772  0.10200706   0.423             0.672218    
+## data$INDFMPIR_ts1      -0.08291354  0.10650153  -0.779             0.436377    
+## data$age                1.45909867  0.02988322  48.827 &lt; 0.0000000000000002 ***
+## data$smoke1             0.14414533  0.11702678   1.232             0.218229    
+## data$activityscore     -0.03623345  0.02333432  -1.553             0.120667    
+## data$sch_activityscore  0.06046293  0.04565863   1.324             0.185611    
+## data$race3             -0.12059720  0.13262876  -0.909             0.363336    
+## data$race4              1.04271623  0.14647785   7.119     0.00000000000163 ***
+## data$race6             -0.18073110  0.16727233  -1.080             0.280098    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.003 on 1618 degrees of freedom
+## Multiple R-squared:  0.6368, Adjusted R-squared:  0.6334 
+## F-statistic: 189.1 on 15 and 1618 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="ejemplo-real.html#cb93-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">confint</span>(Multiple_BMXARML), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)            11.50  22.56
+## data$iqrSe             -0.20   0.06
+## data$iqrPb             -0.36  -0.11
+## data$iqrFl             -0.16   0.09
+## data$iqrHg             -0.27   0.01
+## data$iqrMn              0.06   0.35
+## data$calories           0.00   0.00
+## data$sex1              -0.16   0.24
+## data$INDFMPIR_ts1      -0.29   0.13
+## data$age                1.40   1.52
+## data$smoke1            -0.09   0.37
+## data$activityscore     -0.08   0.01
+## data$sch_activityscore -0.03   0.15
+## data$race3             -0.38   0.14
+## data$race4              0.76   1.33
+## data$race6             -0.51   0.15</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regresión-multiple.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Tonis81/2673_Regresion_lineal/edit/main/04-NHANES.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/Tonis81/2673_Regresion_lineal/blob/main/04-NHANES.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
