@@ -83,8 +83,7 @@ data$sch_activityscore
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrFl) + (data$iqrMn) + (data$iqrPb) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXBMI)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXBMI), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXBMI), 2)[2,]
 ```
 
 **Altura en posición de pie - standing height**
@@ -92,8 +91,7 @@ round(confint(Multiple_BMXBMI), 2)[2,]
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrFl) + (data$iqrMn) + (data$iqrPb) + (data$iqrSe) +(data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXHT)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXHT),2) [2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXHT),2) [2,]
 ```
 
 **Circumferencia de cintura - Waist circumference**
@@ -101,8 +99,7 @@ round(confint(Multiple_BMXHT),2) [2,]
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrFl) + (data$iqrMn) + (data$iqrPb) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXWAIST)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXWAIST), 2) [2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXWAIST), 2) [2,]
 ```
 
 **Longitud del brazo superior - Upper arm length**
@@ -110,8 +107,7 @@ round(confint(Multiple_BMXWAIST), 2) [2,]
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrFl) + (data$iqrMn) + (data$iqrPb) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXARML)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXARML), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXARML), 2)[2,]
 ```
 
 **Plomo (Pb)**
@@ -121,8 +117,7 @@ round(confint(Multiple_BMXARML), 2)[2,]
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXBMI)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXBMI), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXBMI), 2)[2,]
 ```
 
 **Altura en posición de pie - standing height**
@@ -130,8 +125,7 @@ round(confint(Multiple_BMXBMI), 2)[2,]
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXHT)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXHT),2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXHT),2)[2,]
 ```
 
 **Circumferencia de cintura - Waist circumference**
@@ -139,8 +133,7 @@ round(confint(Multiple_BMXHT),2)[2,]
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + (data$iqrSe) +(data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXWAIST)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXWAIST), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXWAIST), 2)[2,]
 ```
 
 **Longitud del brazo superior - Upper arm length**
@@ -148,8 +141,7 @@ round(confint(Multiple_BMXWAIST), 2)[2,]
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXARML)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXARML), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXARML), 2)[2,]
 ```
 
 **Manganeso (Mn)**
@@ -159,8 +151,7 @@ round(confint(Multiple_BMXARML), 2)[2,]
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXBMI)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXBMI), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXBMI), 2)[2,]
 ```
 
 **Altura en posición de pie - standing height**
@@ -168,8 +159,7 @@ round(confint(Multiple_BMXBMI), 2)[2,]
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXHT)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXHT),2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXHT),2)[2,]
 ```
 
 **Circumferencia de cintura - Waist circumference**
@@ -177,8 +167,7 @@ round(confint(Multiple_BMXHT),2)[2,]
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXWAIST)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXWAIST), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXWAIST), 2)[2,]
 ```
 
 **Longitud del brazo superior - Upper arm length**
@@ -186,8 +175,7 @@ round(confint(Multiple_BMXWAIST), 2)[2,]
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrMn) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) +(data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXARML)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXARML), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXARML), 2)[2,]
 ```
 
 **Mercurio (Hg)**
@@ -197,8 +185,7 @@ round(confint(Multiple_BMXARML), 2)[2,]
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) +(data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXBMI)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXBMI), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXBMI), 2)[2,]
 ```
 
 **Altura en posición de pie - standing height**
@@ -206,8 +193,7 @@ round(confint(Multiple_BMXBMI), 2)[2,]
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) + (data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXHT)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXHT),2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXHT),2)[2,]
 ```
 
 **Circumferencia de cintura - Waist circumference**
@@ -215,8 +201,7 @@ round(confint(Multiple_BMXHT),2)[2,]
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) + (data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXWAIST)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXWAIST), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXWAIST), 2)[2,]
 ```
 
 **Longitud del brazo superior - Upper arm length**
@@ -224,8 +209,7 @@ round(confint(Multiple_BMXWAIST), 2)[2,]
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrHg) + (data$iqrPb) + (data$iqrFl) + (data$iqrSe) + (data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXARML)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXARML), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXARML), 2)[2,]
 ```
 
 **Selenium (Se)**
@@ -235,8 +219,7 @@ round(confint(Multiple_BMXARML), 2)[2,]
 Multiple_BMXBMI <- lm(data$BMXBMI ~  (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + (data$iqrHg) +(data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXBMI)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXBMI), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXBMI), 2)[2,]
 ```
 
 **Altura en posición de pie - standing height**
@@ -244,8 +227,7 @@ round(confint(Multiple_BMXBMI), 2)[2,]
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + (data$iqrHg) +(data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXHT)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXHT),2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXHT),2)[2,]
 ```
 
 **Circumferencia de cintura - Waist circumference**
@@ -253,8 +235,7 @@ round(confint(Multiple_BMXHT),2)[2,]
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + (data$iqrHg) +(data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXWAIST)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXWAIST), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXWAIST), 2)[2,]
 ```
 
 **Longitud del brazo superior - Upper arm length**
@@ -262,6 +243,5 @@ round(confint(Multiple_BMXWAIST), 2)[2,]
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrSe) + (data$iqrPb) + (data$iqrFl) + (data$iqrHg) + (data$iqrMn) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXARML)
-round(cft$coefficients[2,1],2)
-round(confint(Multiple_BMXARML), 2)[2,]
+round(cft$coefficients[2,1],2); round(confint(Multiple_BMXARML), 2)[2,]
 ```
