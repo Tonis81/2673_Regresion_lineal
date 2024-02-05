@@ -97,7 +97,7 @@ round(confint(Multiple_BMXHT),2) [2,]
 ```
 
 **Circumferencia de cintura - Waist circumference**
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXWAIST <- lm(data$BMXWAIST ~  (data$iqrFl) + (data$iqrMn) + (data$iqrPb) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXWAIST)
@@ -144,7 +144,7 @@ round(confint(Multiple_BMXWAIST), 2)[2,]
 ```
 
 **Longitud del brazo superior - Upper arm length**
-```{r, results='hide', message=FALSE}
+```{r, message=FALSE}
 Multiple_BMXARML <- lm(data$BMXARML ~  (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
 cft <- summary(Multiple_BMXARML)
