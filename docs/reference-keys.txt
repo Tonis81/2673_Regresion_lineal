@@ -1,4 +1,3 @@
-tab:unnamed-chunk-18
 análisis-de-regresión
 regresión-lineal-simple.
 ejemplo-base-de-datos-women
