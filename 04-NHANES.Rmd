@@ -125,7 +125,7 @@ round(cft$coefficients[2,1],2)
 round(confint(Multiple_BMXBMI), 2)[2,]
 ```
 
-**Altura de pie - standing height**
+**Altura en posición de pie - standing height**
 ```{r, message=FALSE}
 Multiple_BMXHT <- lm(data$BMXHT ~  (data$iqrPb) + (data$iqrMn) + (data$iqrFl) + (data$iqrSe) + (data$iqrHg) + data$calories + data$sex + data$INDFMPIR_ts + data$age + data$smoke + data$activityscore + data$sch_activityscore + data$race) 
 
