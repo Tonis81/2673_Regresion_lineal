@@ -244,7 +244,7 @@ div.csl-indent {
 <span id="cb4-2"><a href="regresión-lineal-simple..html#cb4-2" tabindex="-1"></a><span class="fu">mean</span>(fit.res)</span></code></pre></div>
 <pre><code>## [1] 0.00000000000000004808075</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regresión-lineal-simple..html#cb6-1" tabindex="-1"></a><span class="fu">plot</span>(women<span class="sc">$</span>height, fit.res)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="regresión-lineal-simple..html#cb7-1" tabindex="-1"></a>women<span class="sc">$</span>weight</span></code></pre></div>
 <pre><code>##  [1] 115 117 120 123 126 129 132 135 139 142 146 150 154 159 164</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="regresión-lineal-simple..html#cb9-1" tabindex="-1"></a><span class="fu">residuals</span>(fit)</span></code></pre></div>
@@ -258,7 +258,7 @@ div.csl-indent {
 <span id="cb11-4"><a href="regresión-lineal-simple..html#cb11-4" tabindex="-1"></a>               <span class="at">ylab=</span><span class="st">&quot;Weight (in pounds)&quot;</span>) </span>
 <span id="cb11-5"><a href="regresión-lineal-simple..html#cb11-5" tabindex="-1"></a></span>
 <span id="cb11-6"><a href="regresión-lineal-simple..html#cb11-6" tabindex="-1"></a><span class="fu">abline</span>(fit)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="regresión-lineal-simple..html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb12-2"><a href="regresión-lineal-simple..html#cb12-2" tabindex="-1"></a>women<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit) </span>
 <span id="cb12-3"><a href="regresión-lineal-simple..html#cb12-3" tabindex="-1"></a><span class="fu">ggplot</span>(women, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
@@ -268,7 +268,7 @@ div.csl-indent {
 <span id="cb12-7"><a href="regresión-lineal-simple..html#cb12-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> predicted), <span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb12-8"><a href="regresión-lineal-simple..html#cb12-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Con la información generada se puede predecir que la ecuación es:</p>
 <p><span class="math inline">\(\hat{weight} = -87.52 + 3.45 x height\)</span></p>
 <p><br/></p>
@@ -281,7 +281,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="regresión-lineal-simple..html#cb14-1" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height, <span class="at">data=</span>women)</span>
 <span id="cb14-2"><a href="regresión-lineal-simple..html#cb14-2" tabindex="-1"></a><span class="co">#par(mfrow=c(2,2))</span></span>
 <span id="cb14-3"><a href="regresión-lineal-simple..html#cb14-3" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-18-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-18-3.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-18-4.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-10-3.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-10-4.png" width="672" /></p>
 <p>Para entender los gráficos generados, hay que tener en cuenta las asunciones para los modelos de mínimos cuadrados:</p>
 <ul>
 <li><p><strong>Normalidad</strong>: si la variable dependiente se distribuye normalmente para un conjunto fijo de valores predictores, entonces los valores residuales deben distribuirse normalmente con una media de 0. La gráfica de QQ normal es una gráfica de probabilidad de los residuos estandarizados frente a los valores que se esperaría bajo normalidad. Si ha cumplido con la suposición de normalidad, los puntos de este gráfico deben estar en la línea recta de 45 grados. Como no es así, claramente ha violado ligeramente supuesto de normalidad.</p></li>
