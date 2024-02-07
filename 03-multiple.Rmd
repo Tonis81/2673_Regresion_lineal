@@ -20,7 +20,7 @@ states <- as.data.frame(state.x77[,c("Murder", "Population",
 Un buen primer paso en regresión múltiple es examinar la relación entre pareja de variables.
 
 ```{r}
-cor(states)
+cor(states, method = "pearson")
 ```
 
 ```{r, warning=FALSE}

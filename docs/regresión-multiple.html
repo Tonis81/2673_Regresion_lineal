@@ -210,7 +210,7 @@ div.csl-indent {
 <span id="cb15-2"><a href="regresión-multiple.html#cb15-2" tabindex="-1"></a>states <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(state.x77[,<span class="fu">c</span>(<span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Population&quot;</span>,</span>
 <span id="cb15-3"><a href="regresión-multiple.html#cb15-3" tabindex="-1"></a>                        <span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Frost&quot;</span>)])</span></code></pre></div>
 <p>Un buen primer paso en regresión múltiple es examinar la relación entre pareja de variables.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="regresión-multiple.html#cb16-1" tabindex="-1"></a><span class="fu">cor</span>(states)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="regresión-multiple.html#cb16-1" tabindex="-1"></a><span class="fu">cor</span>(states, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>##                Murder Population Illiteracy     Income      Frost
 ## Murder      1.0000000  0.3436428  0.7029752 -0.2300776 -0.5388834
 ## Population  0.3436428  1.0000000  0.1076224  0.2082276 -0.3321525
@@ -220,7 +220,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="regresión-multiple.html#cb18-1" tabindex="-1"></a><span class="fu">library</span>(car)</span>
 <span id="cb18-2"><a href="regresión-multiple.html#cb18-2" tabindex="-1"></a><span class="fu">scatterplotMatrix</span>(states, <span class="at">spread=</span><span class="cn">FALSE</span>, <span class="at">smoother.args=</span><span class="fu">list</span>(<span class="at">lty=</span><span class="dv">2</span>),</span>
 <span id="cb18-3"><a href="regresión-multiple.html#cb18-3" tabindex="-1"></a>    <span class="at">main=</span><span class="st">&quot;Scatter Plot Matrix&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <div id="diagnostico-de-la-regresión" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Diagnostico de la regresión<a href="regresión-multiple.html#diagnostico-de-la-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -229,7 +229,7 @@ div.csl-indent {
 <span id="cb19-3"><a href="regresión-multiple.html#cb19-3" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Murder <span class="sc">~</span> Population <span class="sc">+</span> Illiteracy <span class="sc">+</span> Income <span class="sc">+</span> Frost, <span class="at">data=</span>states)</span>
 <span id="cb19-4"><a href="regresión-multiple.html#cb19-4" tabindex="-1"></a><span class="co">#par(mfrow=c(2,2))</span></span>
 <span id="cb19-5"><a href="regresión-multiple.html#cb19-5" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-14-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-14-3.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-14-4.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-17-2.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-17-3.png" width="672" /><img src="bookdownproj_files/figure-html/unnamed-chunk-17-4.png" width="672" /></p>
 <p>Los supuestos del modelo parecen estar bien satisfechos, con la excepción de que Nevada es un valor atípico.</p>
 
 </div>
