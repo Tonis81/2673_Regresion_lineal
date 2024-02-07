@@ -82,11 +82,11 @@ $\hat{Y}_{i}=\hat{\beta}_{0}+\hat{\beta}_{j} X_{ji}+...+\hat{\beta}_{k} X_{ki} \
 
 <!--*Los valores con sombrero ^ hacen referencia a valores predictivos*.-->
 
-donde $n$ es el número de observaciones y $k$ es el número de variables predictoras. En esta ecuación $Y_{i}$ es el valor a predecir de la variable dependiente para la observación $i$ (especificamente, es la media estimada de la distribución $Y$, condicionada por los valores predictivos). $X_{ji}$ es el valor predictivo $j$ para la observación $i$. ${\beta}_{0}$ es la intersección (el valor predicho de $Y$ cuando todas las variables predictoras valen cero). ${\beta}_{j}$ es el coeficiente de regresión para el predictor en posición $j$ (representa la pendiente del cambio en $Y$ por unidad de cambio en $X_{ji}$). 
+donde $n$ es el número de observaciones y $k$ es el número de variables predictoras. En esta ecuación $Y_{i}$ es el valor a predecir de la variable dependiente para la observación $i$ (especificamente, es la media estimada de la distribución $Y$, condicionada por los valores predictivos). $X_{ji}$ es el valor predictivo $j$ para la observación $i$. ${\beta}_{0}$ es la intersección (el valor estimado de $Y$ cuando todas las variables predictoras valen cero). ${\beta}_{j}$ es el coeficiente de regresión para el predictor en posición $j$ (representa la pendiente del cambio en $Y$ por unidad de cambio en $X_{ji}$). 
 
 <br/>
 
-Nuestro objetivo es seleccionar los parámetros del modelo (intersección y pendiente) que minimice la diferencia entre los valores de respuesta actual y los valores predichos por el modelo. Específicamente, los parámetros del modelo son seleccionados para minimizar la suma de cuadrados residuales (**método de minimos cuadrados**):
+Nuestro objetivo es seleccionar los parámetros del modelo (intersección y pendiente) que minimice la diferencia entre los valores de respuesta actual y los valores estimados por el modelo. Específicamente, los parámetros del modelo son seleccionados para minimizar la suma de cuadrados residuales (**método de minimos cuadrados**):
 
 $\sum_{i=1}^{n}=(Y_i - \hat{Y_i)}^{2}= \sum_{i=1}^{n} (Y_i-\hat{\beta_0} + \hat{\beta_1} X_{ji} + ...+ \hat{\beta_k} X_{ki})^{2}=\sum_{i=1}^{n} \xi _{i}^{2}$
 
