@@ -5,7 +5,7 @@ diagnosticos-de-la-regresión
 regresión-multiple
 ejemplo-base-de-datos-state.x77
 diagnostico-de-la-regresión
-ejemplo-real
+caso-práctico
 nhanes
 metales-y-crecimiento
 referencias

@@ -1,4 +1,4 @@
-# Ejemplo real
+# Caso práctico
 
 ## NHANES
 
