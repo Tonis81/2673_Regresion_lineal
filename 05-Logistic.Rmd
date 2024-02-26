@@ -15,7 +15,7 @@ $log[p(X) / (1-p(X))]  =  β0 + β1X1 + β2X2 + … + βpXp$
 Xj: La j-ésima variable predictora
 βj: La estimación del coeficiente para la j-ésima variable predictora"
 
-## Ejemplo:
+## Ejemplo
 
 ```{r}
 options(scipen=999) #Desactivar la notación científica
