@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Regresión logistica | 2673 Regresion lineal</title>
+  <meta name="description" content="Chapter 5 Regresión logistica | 2673 Regresion lineal" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Regresión logistica | 2673 Regresion lineal" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Regresión logistica | 2673 Regresion lineal" />
+  
+  
+  
+
+<meta name="author" content="A.J. Signes-Pastor" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="caso-práctico.html"/>
+<link rel="next" href="referencias.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Regresion lineal</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Análisis de regresión</a></li>
+<li class="chapter" data-level="2" data-path="regresión-lineal-simple..html"><a href="regresión-lineal-simple..html"><i class="fa fa-check"></i><b>2</b> Regresión lineal simple.</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="regresión-lineal-simple..html"><a href="regresión-lineal-simple..html#ejemplo-base-de-datos-women"><i class="fa fa-check"></i><b>2.1</b> Ejemplo base de datos “women”</a></li>
+<li class="chapter" data-level="2.2" data-path="regresión-lineal-simple..html"><a href="regresión-lineal-simple..html#diagnosticos-de-la-regresión"><i class="fa fa-check"></i><b>2.2</b> Diagnosticos de la regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="regresión-multiple.html"><a href="regresión-multiple.html"><i class="fa fa-check"></i><b>3</b> Regresión multiple</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="regresión-multiple.html"><a href="regresión-multiple.html#ejemplo-base-de-datos-state.x77"><i class="fa fa-check"></i><b>3.1</b> Ejemplo base de datos “state.x77”</a></li>
+<li class="chapter" data-level="3.2" data-path="regresión-multiple.html"><a href="regresión-multiple.html#diagnostico-de-la-regresión"><i class="fa fa-check"></i><b>3.2</b> Diagnostico de la regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="caso-práctico.html"><a href="caso-práctico.html"><i class="fa fa-check"></i><b>4</b> Caso práctico</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="caso-práctico.html"><a href="caso-práctico.html#nhanes"><i class="fa fa-check"></i><b>4.1</b> NHANES</a></li>
+<li class="chapter" data-level="4.2" data-path="caso-práctico.html"><a href="caso-práctico.html#metales-y-crecimiento"><i class="fa fa-check"></i><b>4.2</b> Metales y crecimiento</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresión-logistica.html"><a href="regresión-logistica.html"><i class="fa fa-check"></i><b>5</b> Regresión logistica</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regresión-logistica.html"><a href="regresión-logistica.html#ejemplo"><i class="fa fa-check"></i><b>5.1</b> Ejemplo:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i><b>6</b> Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">2673 Regresion lineal</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regresión-logistica" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Regresión logistica<a href="regresión-logistica.html#regresión-logistica" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><a href="https://urldefense.com/v3/__https://posit.cloud/content/7675138__;!!D9dNQwwGXtA!RLf-XMRgNT_dYRgM9SdxrA2Vm-q1BQBhYfkxR5ogCXaFzWgThyjC4Gyzxx1kIs9QalQrKXlP1qZqyqWb$">Acceso al código</a></p>
+<p>Cuando queremos evaluar la relación entre una o más variables predictoras y una variable de respuesta continua, usamos regresión lineal.</p>
+<p>La regresión logística es un método que podemos usar para ajustar un modelo de regresión cuando la variable de respuesta es binaria.</p>
+<p>Cuando ajustas un modelo de regresión logística en R, los coeficientes en el resumen del modelo representan el cambio promedio en el logaritmo de las probabilidades de la variable de respuesta asociadas con un aumento de una unidad en cada variable predictora.</p>
+<p><span class="math inline">\(log[p(X) / (1-p(X))] = β0 + β1X1 + β2X2 + … + βpXp\)</span></p>
+<p>Xj: La j-ésima variable predictora
+βj: La estimación del coeficiente para la j-ésima variable predictora”</p>
+<div id="ejemplo" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Ejemplo:<a href="regresión-logistica.html#ejemplo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="regresión-logistica.html#cb86-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) <span class="co">#Desactivar la notación científica</span></span>
+<span id="cb86-2"><a href="regresión-logistica.html#cb86-2" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb86-3"><a href="regresión-logistica.html#cb86-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>La bse de datos Default contiene información simulada sobre diez mil clientes que nos permite predecir qué clientes incumplirán con su deuda de tarjeta de crédito.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="regresión-logistica.html#cb87-1" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
+<span id="cb87-2"><a href="regresión-logistica.html#cb87-2" tabindex="-1"></a><span class="fu">names</span>(Default)</span></code></pre></div>
+<pre><code>## [1] &quot;default&quot; &quot;student&quot; &quot;balance&quot; &quot;income&quot;</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="regresión-logistica.html#cb89-1" tabindex="-1"></a><span class="fu">head</span>(Default) <span class="co">#&quot;Ver las primeras cinco filas del conjunto de datos &quot;</span></span></code></pre></div>
+<pre><code>##   default student   balance    income
+## 1      No      No  729.5265 44361.625
+## 2      No     Yes  817.1804 12106.135
+## 3      No      No 1073.5492 31767.139
+## 4      No      No  529.2506 35704.494
+## 5      No      No  785.6559 38463.496
+## 6      No     Yes  919.5885  7491.559</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="regresión-logistica.html#cb91-1" tabindex="-1"></a><span class="fu">dim</span>(Default)</span></code></pre></div>
+<pre><code>## [1] 10000     4</code></pre>
+<p>Base de datos con 10000 observaciones en las siguientes 4 variables.
+<strong>default</strong>: Un factor con niveles No y Sí que indica si el cliente incumplió su deuda
+<strong>student</strong>: Un factor con niveles No y Sí que indica si el cliente es estudiante
+<strong>balance</strong>: El saldo promedio que el cliente tiene en su tarjeta de crédito después de realizar su pago mensual
+<strong>income</strong>: Ingresos del cliente”</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="regresión-logistica.html#cb93-1" tabindex="-1"></a>Default <span class="sc">%&gt;%</span> </span>
+<span id="cb93-2"><a href="regresión-logistica.html#cb93-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(balance, income, <span class="at">color =</span> default)) <span class="sc">+</span> </span>
+<span id="cb93-3"><a href="regresión-logistica.html#cb93-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb93-4"><a href="regresión-logistica.html#cb93-4" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb93-5"><a href="regresión-logistica.html#cb93-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Estado de incumplimiento según ingreso y saldo.&quot;</span>) </span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-43-1.png" width="672" />
+Con la evaluación gráfica parece que “balance” es un mejor predictor de “default” que “income”.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="regresión-logistica.html#cb94-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> Default <span class="sc">%&gt;%</span> </span>
+<span id="cb94-2"><a href="regresión-logistica.html#cb94-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(income, default, <span class="at">fill =</span> student)) <span class="sc">+</span></span>
+<span id="cb94-3"><a href="regresión-logistica.html#cb94-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb94-4"><a href="regresión-logistica.html#cb94-4" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-5"><a href="regresión-logistica.html#cb94-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution of default&quot;</span>,</span>
+<span id="cb94-6"><a href="regresión-logistica.html#cb94-6" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by balance and student status&quot;</span>,</span>
+<span id="cb94-7"><a href="regresión-logistica.html#cb94-7" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Data from ISLR package&quot;</span>) </span>
+<span id="cb94-8"><a href="regresión-logistica.html#cb94-8" tabindex="-1"></a>  </span>
+<span id="cb94-9"><a href="regresión-logistica.html#cb94-9" tabindex="-1"></a>p1 </span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="regresión-logistica.html#cb95-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> Default <span class="sc">%&gt;%</span> </span>
+<span id="cb95-2"><a href="regresión-logistica.html#cb95-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(balance, default, <span class="at">fill =</span> student)) <span class="sc">+</span></span>
+<span id="cb95-3"><a href="regresión-logistica.html#cb95-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb95-4"><a href="regresión-logistica.html#cb95-4" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb95-5"><a href="regresión-logistica.html#cb95-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution of default&quot;</span>,</span>
+<span id="cb95-6"><a href="regresión-logistica.html#cb95-6" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by balance and student status&quot;</span>,</span>
+<span id="cb95-7"><a href="regresión-logistica.html#cb95-7" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Data from ISLR package&quot;</span>) </span>
+<span id="cb95-8"><a href="regresión-logistica.html#cb95-8" tabindex="-1"></a>  </span>
+<span id="cb95-9"><a href="regresión-logistica.html#cb95-9" tabindex="-1"></a>p1 </span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p>Visualización de la curva logistica</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="regresión-logistica.html#cb96-1" tabindex="-1"></a>Default<span class="sc">$</span>default_1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(Default<span class="sc">$</span>default<span class="sc">==</span><span class="st">&quot;Yes&quot;</span>) </span>
+<span id="cb96-2"><a href="regresión-logistica.html#cb96-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>Default, <span class="fu">aes</span>(<span class="at">y=</span>default_1, <span class="at">x=</span> balance)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb96-3"><a href="regresión-logistica.html#cb96-3" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&quot;glm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family=</span>binomial)) </span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>Utilizaremos el estado de estudiante, el saldo bancario y el ingreso para generar un modelo de regresión logística capaz de predecir la probabilidad de que un individuo dado incumpla su deuda.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="regresión-logistica.html#cb98-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(default<span class="sc">~</span>student<span class="sc">+</span>balance<span class="sc">+</span>income, <span class="at">family=</span><span class="st">&#39;binomial&#39;</span>, <span class="at">data=</span>Default) <span class="co">#generamos el modelo de regresion logistica</span></span>
+<span id="cb98-2"><a href="regresión-logistica.html#cb98-2" tabindex="-1"></a></span>
+<span id="cb98-3"><a href="regresión-logistica.html#cb98-3" tabindex="-1"></a><span class="fu">summary</span>(model) <span class="co">#ver el modelo</span></span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = default ~ student + balance + income, family = &quot;binomial&quot;, 
+##     data = Default)
+## 
+## Coefficients:
+##                  Estimate    Std. Error z value             Pr(&gt;|z|)    
+## (Intercept) -10.869045196   0.492255516 -22.080 &lt; 0.0000000000000002 ***
+## studentYes   -0.646775807   0.236252529  -2.738              0.00619 ** 
+## balance       0.005736505   0.000231895  24.738 &lt; 0.0000000000000002 ***
+## income        0.000003033   0.000008203   0.370              0.71152    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 2920.6  on 9999  degrees of freedom
+## Residual deviance: 1571.5  on 9996  degrees of freedom
+## AIC: 1579.5
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<p>Los coeficientes en la salida indican el cambio promedio en los logaritmos de las probabilidades de incumplimiento.</p>
+<p>Por ejemplo, un aumento de una unidad en el saldo está asociado con un aumento promedio de 0.005988 en los logaritmos de las probabilidades de incumplimiento.</p>
+<p>Para calcular el cambio la razón de probabilidades para cada variable predictora, podemos utilizar la siguiente sintaxis:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="regresión-logistica.html#cb100-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(model)) <span class="co">#calcular la razón de probabilidades (odd ratio) para cada variable predictora</span></span></code></pre></div>
+<pre><code>##   (Intercept)    studentYes       balance        income 
+## 0.00001903854 0.52373166965 1.00575299051 1.00000303345</code></pre>
+<p>También podemos calcular cada razón de probabilidades junto con un intervalo de confianza del 95% para cada razón de probabilidades:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="regresión-logistica.html#cb102-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">cbind</span>(<span class="at">Odds_Ratio =</span> <span class="fu">coef</span>(model), <span class="fu">confint</span>(model))) <span class="co">#calcular la razón de probabilidades y el intervalo de confianza del 95% para cada variable predictora&quot;</span></span></code></pre></div>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<pre><code>##                Odds_Ratio          2.5 %       97.5 %
+## (Intercept) 0.00001903854 0.000007074481 0.0000487808
+## studentYes  0.52373166965 0.329882707270 0.8334223982
+## balance     1.00575299051 1.005308940686 1.0062238757
+## income      1.00000303345 0.999986952969 1.0000191246</code></pre>
+<p>La razón de probabilidades para cada coeficiente representa el aumento promedio en las probabilidades de que un individuo incumpla, suponiendo que todas las demás variables predictoras se mantengan constantes.</p>
+<p>Por ejemplo, la variable predictora saldo tiene una razón de probabilidades de 1.0057.</p>
+<p>Esto significa que por cada dólar adicional en el saldo llevado por un individuo, las probabilidades de que el individuo incumpla su préstamo aumentan en un factor de 1.0057, suponiendo que el estado de estudiante y el ingreso se mantengan constantes.</p>
+<p>Podemos interpretar las razones de probabilidades para las otras variables predictoras de manera similar.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="caso-práctico.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Tonis81/2673_Regresion_lineal/edit/main/05-Logistic.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/Tonis81/2673_Regresion_lineal/blob/main/05-Logistic.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

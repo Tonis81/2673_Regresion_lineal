@@ -1,0 +1,109 @@
+
+# Regresión logistica
+
+[Acceso al código](https://urldefense.com/v3/__https://posit.cloud/content/7675138__;!!D9dNQwwGXtA!RLf-XMRgNT_dYRgM9SdxrA2Vm-q1BQBhYfkxR5ogCXaFzWgThyjC4Gyzxx1kIs9QalQrKXlP1qZqyqWb$)
+
+
+Cuando queremos evaluar la relación entre una o más variables predictoras y una variable de respuesta continua, usamos regresión lineal.
+
+La regresión logística es un método que podemos usar para ajustar un modelo de regresión cuando la variable de respuesta es binaria.
+
+Cuando ajustas un modelo de regresión logística en R, los coeficientes en el resumen del modelo representan el cambio promedio en el logaritmo de las probabilidades de la variable de respuesta asociadas con un aumento de una unidad en cada variable predictora.
+
+$log[p(X) / (1-p(X))]  =  β0 + β1X1 + β2X2 + … + βpXp$
+
+Xj: La j-ésima variable predictora
+βj: La estimación del coeficiente para la j-ésima variable predictora"
+
+## Ejemplo:
+
+```{r}
+options(scipen=999) #Desactivar la notación científica
+rm(list=ls())
+library(tidyverse)
+```
+
+La bse de datos Default contiene información simulada sobre diez mil clientes que nos permite predecir qué clientes incumplirán con su deuda de tarjeta de crédito.
+
+```{r}
+library(ISLR)
+names(Default)
+head(Default) #"Ver las primeras cinco filas del conjunto de datos "
+dim(Default)
+```
+Base de datos con 10000 observaciones en las siguientes 4 variables.
+**default**: Un factor con niveles No y Sí que indica si el cliente incumplió su deuda
+**student**: Un factor con niveles No y Sí que indica si el cliente es estudiante
+**balance**: El saldo promedio que el cliente tiene en su tarjeta de crédito después de realizar su pago mensual
+**income**: Ingresos del cliente"
+
+```{r}
+Default %>% 
+  ggplot(aes(balance, income, color = default)) + 
+  geom_point(alpha = 0.4) +
+  scale_color_brewer(palette = "Set1", direction = -1) +
+  labs(title = "Estado de incumplimiento según ingreso y saldo.") 
+```
+Con la evaluación gráfica parece que "balance" es un mejor predictor de "default" que "income". 
+
+```{r}
+p1 <- Default %>% 
+  ggplot(aes(income, default, fill = student)) +
+  geom_boxplot(alpha = 0.8) +
+  scale_fill_brewer(palette = "Dark2") +
+  labs(title = "Distribution of default",
+       subtitle = "by balance and student status",
+       caption = "Data from ISLR package") 
+  
+p1 
+```
+
+```{r}
+p1 <- Default %>% 
+  ggplot(aes(balance, default, fill = student)) +
+  geom_boxplot(alpha = 0.8) +
+  scale_fill_brewer(palette = "Dark2") +
+  labs(title = "Distribution of default",
+       subtitle = "by balance and student status",
+       caption = "Data from ISLR package") 
+  
+p1 
+```
+
+Visualización de la curva logistica
+```{r}
+Default$default_1 <- as.numeric(Default$default=="Yes") 
+ggplot(data=Default, aes(y=default_1, x= balance)) + geom_point(alpha=0.2) + 
+  stat_smooth(method="glm", se=FALSE, method.args = list(family=binomial)) 
+```
+
+Utilizaremos el estado de estudiante, el saldo bancario y el ingreso para generar un modelo de regresión logística capaz de predecir la probabilidad de que un individuo dado incumpla su deuda.
+```{r}
+model <- glm(default~student+balance+income, family='binomial', data=Default) #generamos el modelo de regresion logistica
+
+summary(model) #ver el modelo
+```
+
+Los coeficientes en la salida indican el cambio promedio en los logaritmos de las probabilidades de incumplimiento.
+
+Por ejemplo, un aumento de una unidad en el saldo está asociado con un aumento promedio de 0.005988 en los logaritmos de las probabilidades de incumplimiento.
+
+Para calcular el cambio la razón de probabilidades para cada variable predictora, podemos utilizar la siguiente sintaxis:
+
+```{r}
+exp(coef(model)) #calcular la razón de probabilidades (odd ratio) para cada variable predictora
+```
+
+También podemos calcular cada razón de probabilidades junto con un intervalo de confianza del 95% para cada razón de probabilidades:
+
+```{r}
+exp(cbind(Odds_Ratio = coef(model), confint(model))) #calcular la razón de probabilidades y el intervalo de confianza del 95% para cada variable predictora"
+```
+
+La razón de probabilidades para cada coeficiente representa el aumento promedio en las probabilidades de que un individuo incumpla, suponiendo que todas las demás variables predictoras se mantengan constantes.
+
+Por ejemplo, la variable predictora saldo tiene una razón de probabilidades de 1.0057.
+
+Esto significa que por cada dólar adicional en el saldo llevado por un individuo, las probabilidades de que el individuo incumpla su préstamo aumentan en un factor de 1.0057, suponiendo que el estado de estudiante y el ingreso se mantengan constantes.
+
+Podemos interpretar las razones de probabilidades para las otras variables predictoras de manera similar.
