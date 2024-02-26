@@ -1,5 +1,5 @@
 
-# Regresión logistica
+# Regresión logística
 
 [Acceso al código](https://urldefense.com/v3/__https://posit.cloud/content/7675138__;!!D9dNQwwGXtA!RLf-XMRgNT_dYRgM9SdxrA2Vm-q1BQBhYfkxR5ogCXaFzWgThyjC4Gyzxx1kIs9QalQrKXlP1qZqyqWb$)
 
@@ -23,7 +23,7 @@ rm(list=ls())
 library(tidyverse)
 ```
 
-La bse de datos Default contiene información simulada sobre diez mil clientes que nos permite predecir qué clientes incumplirán con su deuda de tarjeta de crédito.
+La base de datos Default contiene información simulada sobre diez mil clientes que nos permite predecir qué clientes incumplirán con su deuda de tarjeta de crédito.
 
 ```{r}
 library(ISLR)

@@ -8,6 +8,6 @@ diagnostico-de-la-regresión
 caso-práctico
 nhanes
 metales-y-crecimiento
-regresión-logistica
+regresión-logística
 ejemplo
 referencias
